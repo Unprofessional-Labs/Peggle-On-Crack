@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Environment/Rotation.gd" type="Script" id=1]
+
+[node name="Rotation" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Put elements you want to rotate as children"
+}

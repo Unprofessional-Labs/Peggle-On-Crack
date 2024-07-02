@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Entities/PowerupHandler.gd" type="Script" id=1]
+
+[node name="PowerupHandler" type="Node"]
+script = ExtResource( 1 )
+
+[node name="PowerupDuration" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="PowerupDuration" to="." method="_on_PowerupDuration_timeout"]

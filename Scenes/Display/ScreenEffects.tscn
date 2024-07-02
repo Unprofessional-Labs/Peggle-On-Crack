@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Display/ScreenEffects.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Display/Camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Display/ScoreDisplay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Display/TimerDisplay.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Display/DashDisplay.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Display/PowerupDisplay.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Display/CheckpointDisplay.tscn" type="PackedScene" id=7]
+
+[node name="ScreenEffects" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Camera" parent="." instance=ExtResource( 2 )]
+current = true
+target = NodePath("../../PlayerBall")
+
+[node name="ScoreDisplay" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 512 )
+
+[node name="TimerDisplay" parent="." instance=ExtResource( 4 )]
+
+[node name="DashDisplay" parent="." instance=ExtResource( 5 )]
+
+[node name="PowerupDisplay" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1000, 488 )
+
+[node name="CheckpointDisplay" parent="." instance=ExtResource( 7 )]
+position = Vector2( 0, 240 )

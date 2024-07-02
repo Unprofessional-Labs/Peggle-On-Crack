@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Physics/BallPhysicsMaterial.tres" type="PhysicsMaterial" id=1]
+[ext_resource path="res://Assets/Audio/collide.wav" type="AudioStream" id=2]
+[ext_resource path="res://Scenes/Entities/Ball.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.0
+
+[node name="Ball" type="RigidBody2D"]
+collision_mask = 33
+physics_material_override = ExtResource( 1 )
+gravity_scale = 10.0
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]

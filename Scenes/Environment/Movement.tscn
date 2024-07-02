@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Environment/Movement.gd" type="Script" id=1]
+
+[node name="Movement" type="Path2D"]
+curve = null
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "ENABLE EDITABLE CHILDREN
+put nodes you wanna move as children of pathfollow2d
+change time of $Interval to set duration"
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotate = false
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Interval" type="Timer" parent="."]
+
+[connection signal="timeout" from="Interval" to="." method="_on_Interval_timeout"]

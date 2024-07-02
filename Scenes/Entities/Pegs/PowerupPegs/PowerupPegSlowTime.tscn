@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Entities/Pegs/PowerupPeg.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Entities/Pegs/PowerupPegs/PowerupPegSlowTime.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+resource_local_to_scene = true
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id=2]
+resource_local_to_scene = true
+radius = 16.0
+
+[node name="PowerupPegSlowTime" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+POINTS = 1
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="ExplosionHitbox" index="0"]
+shape = SubResource( 2 )
+
+[node name="Sprite" parent="Sprite" index="0"]
+frame = 31
