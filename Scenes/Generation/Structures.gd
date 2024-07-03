@@ -72,8 +72,8 @@ func generate_new_structure(mode="") -> void:
 		add_structure_instance(get_structure_preload_extratime(CURRENT_CHECKPOINT), get_last_child().get_global_y_bottom())
 		add_structure_instance(get_structure_preload_transition(), get_last_child().get_global_y_bottom())
 	else:
-		# add_structure_instance(get_structure_preload_random(str(CURRENT_CHECKPOINT)), get_last_child().get_global_y_bottom())
-		add_structure_instance(STRUCTURE_PRELOADS["3"]["LevelStructure3-1"], get_last_child().get_global_y_bottom())
+		add_structure_instance(get_structure_preload_random(str(CURRENT_CHECKPOINT)), get_last_child().get_global_y_bottom())
+		# add_structure_instance(STRUCTURE_PRELOADS["3"]["LevelStructure3-1"], get_last_child().get_global_y_bottom())
 		STRUCTURES_LEFT_IN_CHECKPOINT -= 1
 
 func delete_structure() -> void:
