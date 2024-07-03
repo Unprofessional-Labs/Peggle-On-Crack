@@ -2,7 +2,7 @@ extends Node
 
 onready var ball:PlayerBall = Global.get_world_node("PlayerBall")
 
-var CURRENT_CHECKPOINT = 2
+var CURRENT_CHECKPOINT = 3
 onready var STRUCTURES_LEFT_IN_CHECKPOINT = CHECKPOINT_LENGTH[CURRENT_CHECKPOINT]
 var STRUCTURE_PRELOADS = {}
 
@@ -72,12 +72,12 @@ func generate_new_structure(mode="") -> void:
 		add_structure_instance(get_structure_preload_extratime(CURRENT_CHECKPOINT), get_last_child().get_global_y_bottom())
 		add_structure_instance(get_structure_preload_transition(), get_last_child().get_global_y_bottom())
 	else:
-		add_structure_instance(get_structure_preload_random(str(CURRENT_CHECKPOINT)), get_last_child().get_global_y_bottom())
-		# add_structure_instance(STRUCTURE_PRELOADS["2"]["LevelStructure2-5"], get_last_child().get_global_y_bottom())
+		# add_structure_instance(get_structure_preload_random(str(CURRENT_CHECKPOINT)), get_last_child().get_global_y_bottom())
+		add_structure_instance(STRUCTURE_PRELOADS["3"]["LevelStructure3-1"], get_last_child().get_global_y_bottom())
 		STRUCTURES_LEFT_IN_CHECKPOINT -= 1
 
 func delete_structure() -> void:
-	if get_child_count() >= 5:
+	if get_child_count() >= 8:
 		get_child(0).queue_free()
 
 func update_checkpoint() -> bool:

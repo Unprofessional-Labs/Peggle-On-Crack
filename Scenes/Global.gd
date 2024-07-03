@@ -36,8 +36,9 @@ func addPowerup(powerup:int, time:float, sprite_frame:int) -> void:
 	emit_signal("triggerPowerup", powerup, true)
 
 func removePowerup(index: int) -> void:
-	emit_signal("triggerPowerup", powerups[index][0], false)
+	var powerupToBeRemoved = powerups[index][0]
 	powerups.remove(index)
+	emit_signal("triggerPowerup", powerupToBeRemoved, false)
 
 func get_multiplier():
 	var multiplier = 1

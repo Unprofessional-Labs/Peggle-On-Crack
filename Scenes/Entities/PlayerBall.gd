@@ -102,9 +102,8 @@ func end(enable:bool) -> void:
 	linear_damp = 0
 
 func anti_softlock() -> void:
-	pass
-#	if abs(global_position.y) > value:
-#		global_position.y = 0
+	if abs(global_position.x) > 500:
+		global_position.x = 0
 
 func _physics_process(delta: float) -> void:
 	$Sprite.global_rotation = 0

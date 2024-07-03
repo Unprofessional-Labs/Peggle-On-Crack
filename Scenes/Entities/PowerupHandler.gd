@@ -6,10 +6,18 @@ var is_piercing_powerup = false
 var multiballLists = [] # 2d array of balls
 var ghost_positions = []
 
+var UNSTACKABLE_POWERUPS = [Global.POWERUP.super_bounce, Global.POWERUP.bamboozle, Global.POWERUP.pierce]
+
 func toggle_powerup(powerup: int, enable: bool) -> void:
 	if !enable:
-		if Global.powerups.has(powerup):
-			return
+		if UNSTACKABLE_POWERUPS.has(powerup):
+			var powerupExists = false
+			for i in Global.powerups:
+				if powerup == i[0]:
+					powerupExists = true
+					break
+			if powerupExists:
+				return
 	
 	match powerup:
 		Global.POWERUP.super_bounce:
@@ -20,9 +28,9 @@ func toggle_powerup(powerup: int, enable: bool) -> void:
 		
 		Global.POWERUP.slow_time:
 			if enable:
-				Global.time_ticking_multiplier = 0.25
+				Global.time_ticking_multiplier *= 0.25
 			else:
-				Global.time_ticking_multiplier = 1
+				Global.time_ticking_multiplier /= 0.25
 			
 		Global.POWERUP.bamboozle:
 			if enable:
@@ -54,11 +62,11 @@ func toggle_powerup(powerup: int, enable: bool) -> void:
 					multiballLists.remove(0)
 		
 		Global.POWERUP.enlarge:
-			var scale_multiplier:Vector2 = Vector2.ONE
+			var scale_multiplier:Vector2 = ball.get_node("CollisionShape2D").scale
 			if enable:
-				scale_multiplier = Vector2(2.5, 2.5)
+				scale_multiplier *= Vector2(2.5, 2.5)
 			else:
-				scale_multiplier = Vector2.ONE
+				scale_multiplier /= Vector2(2.5, 2.5)
 			
 			ball.get_node("CollisionShape2D").scale = scale_multiplier
 			ball.get_node("Hitbox").scale = scale_multiplier
@@ -71,7 +79,9 @@ func toggle_powerup(powerup: int, enable: bool) -> void:
 			else:
 				ball.global_position = ghost_positions[0]
 				ghost_positions.remove(0)
-				ball.modulate = Color("1", "1", "1", "1")
+				
+				if ghost_positions.size() == 0:
+					ball.modulate = Color("1", "1", "1", "1")
 
 func _ready() -> void:
 #	yield(get_tree(), "idle_frame")
