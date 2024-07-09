@@ -4,6 +4,7 @@
 [ext_resource path="res://Scenes/Display/ScorePopupText.gd" type="Script" id=2]
 
 [node name="ScorePopupText" type="Node2D"]
+z_index = 100
 script = ExtResource( 2 )
 
 [node name="Text" parent="." instance=ExtResource( 1 )]

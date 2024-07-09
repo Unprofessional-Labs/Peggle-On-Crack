@@ -2,7 +2,7 @@ extends Node
 
 onready var ball:PlayerBall = Global.get_world_node("PlayerBall")
 
-var CURRENT_CHECKPOINT = 3
+var CURRENT_CHECKPOINT = 1
 onready var STRUCTURES_LEFT_IN_CHECKPOINT = CHECKPOINT_LENGTH[CURRENT_CHECKPOINT]
 var STRUCTURE_PRELOADS = {}
 
