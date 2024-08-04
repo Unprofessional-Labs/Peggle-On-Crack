@@ -7,7 +7,7 @@ var PRELOAD_NAME_BLACKLIST = [
 	"LevelStructure4-4"
 ]
 
-var CURRENT_CHECKPOINT = 1
+var CURRENT_CHECKPOINT = 4
 onready var STRUCTURES_LEFT_IN_CHECKPOINT = CHECKPOINT_LENGTH[CURRENT_CHECKPOINT]
 var STRUCTURE_PRELOADS = {}
 
@@ -59,9 +59,10 @@ func dir_contents_load_all_scenes(path:String, parent_folder_name_for_saving="un
 						var object_name = file_name.trim_suffix(".tscn")
 						
 						if PRELOAD_NAME_BLACKLIST.has(object_name):
-							print("Blacklisted object found: " + fullpath + " (not saved)")
+							# print("Blacklisted object found: " + fullpath + " (not saved)")
+							pass
 						else:
-							print("Found file: " + fullpath + " (saved as " + parent_folder_name_for_saving + "." + object_name + ")")
+							# print("Found file: " + fullpath + " (saved as " + parent_folder_name_for_saving + "." + object_name + ")")
 							STRUCTURE_PRELOADS[parent_folder_name_for_saving][object_name] = load(fullpath)
 			file_name = dir.get_next()
 	else:

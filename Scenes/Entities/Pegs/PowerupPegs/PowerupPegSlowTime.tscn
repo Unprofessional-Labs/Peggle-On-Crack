@@ -13,7 +13,6 @@ radius = 16.0
 
 [node name="PowerupPegSlowTime" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-POINTS = 1
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )

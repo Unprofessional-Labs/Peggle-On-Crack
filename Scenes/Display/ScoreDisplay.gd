@@ -22,8 +22,11 @@ func _process(delta: float) -> void:
 		$Text2.bbcode_text = " [color=#FFFF00]x" + str(Global.get_multiplier()) + "[/color]"
 	else:
 		$Text2.bbcode_text = ""
-		
-	if Global.GAME_VAR.combo > 0:
-		$Text3.bbcode_text = " [color=#03fcec]" + str(Global.GAME_VAR.combo) + " combo![/color]"
+	
+	var combo = Global.GAME_VAR.combo
+	if combo >= 25:
+		$Text3.bbcode_text = " [color=#03fcec]" + str(combo) + " combo! (2x multiplier)[/color]"
+	elif combo > 0:
+		$Text3.bbcode_text = " [color=#03fcec]" + str(combo) + " combo![/color]"
 	else:
 		$Text3.bbcode_text = ""

@@ -110,6 +110,7 @@ func anti_softlock() -> void:
 
 func _physics_process(delta: float) -> void:
 	$Sprite.global_rotation = 0
+	$ComboParticles.emitting = Global.GAME_VAR.combo >= 25
 	
 	anti_softlock()
 	

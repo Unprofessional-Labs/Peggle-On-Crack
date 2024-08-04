@@ -44,6 +44,10 @@ func get_multiplier():
 	var multiplier = 1
 	for i in multipliers:
 		multiplier *= i[0]
+	
+	if GAME_VAR.combo >= 25:
+		multiplier *= 2
+	
 	return multiplier
 
 func initialize() -> void:

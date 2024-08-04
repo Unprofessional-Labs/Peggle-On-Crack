@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Entities/Pegs/PowerupPegs/PowerupPegMultiball.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Entities/Pegs/BombPegReverse.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Entities/Pegs/PowerupPegs/PowerupPegEnlarge.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Entities/Pegs/MultiplierPeg.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Entities/Pegs/PowerupPegs/PowerupPegSlowTime.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Environment/KinematicPlatform.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Environment/Movement.tscn" type="PackedScene" id=10]
 
@@ -1055,46 +1055,37 @@ position = Vector2( 16.5647, 61.8192 )
 [node name="Peg24" parent="Rotation5" index="23" instance=ExtResource( 3 )]
 position = Vector2( -16.5647, -61.8192 )
 
-[node name="MultiplierPeg" parent="." index="263" instance=ExtResource( 8 )]
-position = Vector2( 0, 608 )
-
-[node name="MultiplierPeg2" parent="." index="264" instance=ExtResource( 8 )]
-position = Vector2( -24, 640 )
-
-[node name="MultiplierPeg3" parent="." index="265" instance=ExtResource( 8 )]
-position = Vector2( 24, 640 )
-
-[node name="Peg319" parent="." index="266" instance=ExtResource( 3 )]
+[node name="Peg319" parent="." index="263" instance=ExtResource( 3 )]
 position = Vector2( 256, 888 )
 
-[node name="Peg321" parent="." index="267" instance=ExtResource( 3 )]
+[node name="Peg321" parent="." index="264" instance=ExtResource( 3 )]
 position = Vector2( 320, 888 )
 
-[node name="Peg342" parent="." index="268" instance=ExtResource( 3 )]
+[node name="Peg342" parent="." index="265" instance=ExtResource( 3 )]
 position = Vector2( 256, 952 )
 
-[node name="Peg343" parent="." index="269" instance=ExtResource( 3 )]
+[node name="Peg343" parent="." index="266" instance=ExtResource( 3 )]
 position = Vector2( 288, 920 )
 
-[node name="Peg344" parent="." index="270" instance=ExtResource( 3 )]
+[node name="Peg344" parent="." index="267" instance=ExtResource( 3 )]
 position = Vector2( 320, 952 )
 
-[node name="Peg324" parent="." index="271" instance=ExtResource( 3 )]
+[node name="Peg324" parent="." index="268" instance=ExtResource( 3 )]
 position = Vector2( -320, 888 )
 
-[node name="Peg325" parent="." index="272" instance=ExtResource( 3 )]
+[node name="Peg325" parent="." index="269" instance=ExtResource( 3 )]
 position = Vector2( -256, 888 )
 
-[node name="Peg369" parent="." index="273" instance=ExtResource( 3 )]
+[node name="Peg369" parent="." index="270" instance=ExtResource( 3 )]
 position = Vector2( -320, 952 )
 
-[node name="Peg370" parent="." index="274" instance=ExtResource( 3 )]
+[node name="Peg370" parent="." index="271" instance=ExtResource( 3 )]
 position = Vector2( -288, 920 )
 
-[node name="Peg371" parent="." index="275" instance=ExtResource( 3 )]
+[node name="Peg371" parent="." index="272" instance=ExtResource( 3 )]
 position = Vector2( -256, 952 )
 
-[node name="Movement" parent="." index="276" instance=ExtResource( 10 )]
+[node name="Movement" parent="." index="273" instance=ExtResource( 10 )]
 position = Vector2( -192, 384 )
 curve = SubResource( 3 )
 
@@ -1126,29 +1117,32 @@ margin_bottom = 40.0
 position = Vector2( -320, -8 )
 shape = SubResource( 2 )
 
-[node name="Peg29" parent="." index="277" instance=ExtResource( 3 )]
+[node name="Peg29" parent="." index="274" instance=ExtResource( 3 )]
 position = Vector2( -192, 120 )
 
-[node name="Peg41" parent="." index="278" instance=ExtResource( 3 )]
+[node name="Peg41" parent="." index="275" instance=ExtResource( 3 )]
 position = Vector2( -224, 152 )
 
-[node name="Peg51" parent="." index="279" instance=ExtResource( 3 )]
+[node name="Peg51" parent="." index="276" instance=ExtResource( 3 )]
 position = Vector2( -192, 184 )
 
-[node name="Peg52" parent="." index="280" instance=ExtResource( 3 )]
+[node name="Peg52" parent="." index="277" instance=ExtResource( 3 )]
 position = Vector2( -160, 152 )
 
-[node name="Peg35" parent="." index="281" instance=ExtResource( 3 )]
+[node name="Peg35" parent="." index="278" instance=ExtResource( 3 )]
 position = Vector2( 192, 120 )
 
-[node name="Peg53" parent="." index="282" instance=ExtResource( 3 )]
+[node name="Peg53" parent="." index="279" instance=ExtResource( 3 )]
 position = Vector2( 160, 152 )
 
-[node name="Peg57" parent="." index="283" instance=ExtResource( 3 )]
+[node name="Peg57" parent="." index="280" instance=ExtResource( 3 )]
 position = Vector2( 192, 184 )
 
-[node name="Peg58" parent="." index="284" instance=ExtResource( 3 )]
+[node name="Peg58" parent="." index="281" instance=ExtResource( 3 )]
 position = Vector2( 224, 152 )
+
+[node name="PowerupPegSlowTime" parent="." index="282" instance=ExtResource( 8 )]
+position = Vector2( 0, 632 )
 
 [editable path="Platform"]
 [editable path="Platform2"]

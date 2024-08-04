@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Physics/BallPhysicsMaterial.tres" type="PhysicsMaterial" id=1]
 [ext_resource path="res://Assets/Audio/collide.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scenes/Entities/Ball.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Art/pegs.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.0
@@ -20,5 +21,11 @@ shape = SubResource( 1 )
 
 [node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+hframes = 8
+vframes = 8
+frame = 7
 
 [connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]

@@ -21,4 +21,8 @@ func _process(delta: float) -> void:
 	elif timer < 100:
 		digit_places = 1
 	
+	for i in Global.powerups:
+		if i[0] == Global.POWERUP.slow_time:
+			digit_places += 1
+	
 	$Text.bbcode_text = "[center]" + ("%." + str(digit_places) + "f") % (timer) + "[/center]"

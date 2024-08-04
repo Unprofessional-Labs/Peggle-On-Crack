@@ -1,0 +1,4 @@
+[gd_scene format=2]
+
+[node name="Particles" type="CPUParticles2D"]
+emitting = false
