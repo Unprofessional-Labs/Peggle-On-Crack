@@ -13,7 +13,3 @@ func announce() -> void:
 	yield(get_tree().create_timer(duration + idle_duration), "timeout")
 	$Tween.interpolate_property(self, "modulate:a", 1, 0, duration, Tween.TRANS_LINEAR)
 	$Tween.start()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass

@@ -30,5 +30,8 @@ shape = SubResource( 2 )
 shape = SubResource( 3 )
 disabled = true
 
+[node name="Sprite" parent="." index="5"]
+modulate = Color( 0.529412, 0.972549, 0.188235, 1 )
+
 [node name="Sprite" parent="Sprite" index="0"]
 frame = 12

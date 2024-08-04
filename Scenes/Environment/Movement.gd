@@ -1,5 +1,6 @@
 extends Path2D
 
+export var back_and_forth = true
 export var reverse = false
 onready var current_reverse = reverse
 export var offsetSeconds:float = 0
@@ -22,10 +23,18 @@ func _process(delta):
 	pass
 
 func _on_Interval_timeout() -> void:
-	if !current_reverse:
-		$Tween.interpolate_property($PathFollow2D, "offset", 0, length, $Interval.wait_time, Tween.TRANS_CUBIC, Tween.EASE_IN)
-		$Tween.start()
+	if back_and_forth:
+		if !current_reverse:
+			$Tween.interpolate_property($PathFollow2D, "offset", 0, length, $Interval.wait_time, Tween.TRANS_CUBIC, Tween.EASE_IN)
+			$Tween.start()
+		else:
+			$Tween.interpolate_property($PathFollow2D, "offset", length, 0, $Interval.wait_time, Tween.TRANS_CUBIC, Tween.EASE_IN)
+			$Tween.start()
+		current_reverse = !current_reverse
 	else:
-		$Tween.interpolate_property($PathFollow2D, "offset", length, 0, $Interval.wait_time, Tween.TRANS_CUBIC, Tween.EASE_IN)
-		$Tween.start()
-	current_reverse = !current_reverse
+		if current_reverse:
+			$Tween.interpolate_property($PathFollow2D, "offset", 0, length, $Interval.wait_time, Tween.TRANS_LINEAR)
+			$Tween.start()
+		else:
+			$Tween.interpolate_property($PathFollow2D, "offset", length, 0, $Interval.wait_time, Tween.TRANS_LINEAR)
+			$Tween.start()

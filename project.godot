@@ -38,11 +38,12 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Scenes/Global.gd"
+Global="*res://Scenes/Global.tscn"
 
 [display]
 
-window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gui]
 

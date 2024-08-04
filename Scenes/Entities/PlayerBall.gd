@@ -95,18 +95,23 @@ func end(enable:bool) -> void:
 				Global.emit_signal("end_game")
 			
 			ended = true
-		
-		return
-	
-	gravity_scale = 10 * gravity_scale_multiplier
-	linear_damp = 0
+	else:
+		gravity_scale = 10 * gravity_scale_multiplier
+		linear_damp = 0
+			
 
 func anti_softlock() -> void:
-	if abs(global_position.x) > 500:
+	if abs(global_position.x) > 700:
 		global_position.x = 0
+	
+	var peak_y = Global.get_world_node("Structures").peak_y
+	if peak_y > global_position.y:
+		global_position.y = peak_y + 100
 
 func _physics_process(delta: float) -> void:
 	$Sprite.global_rotation = 0
+	
+	anti_softlock()
 	
 	if Global.GAME_VAR.time_is_up:
 		end(true)
@@ -115,8 +120,6 @@ func _physics_process(delta: float) -> void:
 		end(false)
 	
 	dash_update_process()
-	
-	anti_softlock()
 
 #func _process(delta: float) -> void:
 #	pass

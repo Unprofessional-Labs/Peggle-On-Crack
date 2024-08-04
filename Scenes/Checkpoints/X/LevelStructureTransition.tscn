@@ -6,10 +6,10 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 144, 745.213 )
+extents = Vector2( 319.602, 745.213 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 128, 24 )
+extents = Vector2( 448, 24 )
 
 [node name="LevelStructureTransition" instance=ExtResource( 1 )]
 
@@ -17,31 +17,31 @@ extents = Vector2( 128, 24 )
 margin_bottom = 1408.0
 
 [node name="Platform" parent="." index="1" instance=ExtResource( 2 )]
-position = Vector2( -360, 680 )
+position = Vector2( -376, 680 )
 rotation = -0.261799
 
 [node name="NinePatchRect" parent="Platform" index="0"]
-margin_left = -144.054
-margin_top = -745.134
-margin_right = 143.946
-margin_bottom = 746.866
+margin_left = -497.0
+margin_top = -745.0
+margin_right = 144.0
+margin_bottom = 744.0
 
 [node name="CollisionShape2D" parent="Platform" index="1"]
-position = Vector2( -0.0540161, 0.0794067 )
+position = Vector2( -175.656, 0.0794067 )
 shape = SubResource( 1 )
 
 [node name="Platform2" parent="." index="2" instance=ExtResource( 2 )]
-position = Vector2( 360, 680 )
+position = Vector2( 376, 680 )
 rotation = -2.87979
 
 [node name="NinePatchRect" parent="Platform2" index="0"]
-margin_left = -144.054
-margin_top = -745.134
-margin_right = 143.946
-margin_bottom = 746.866
+margin_left = -495.0
+margin_top = -745.0
+margin_right = 144.0
+margin_bottom = 747.0
 
 [node name="CollisionShape2D" parent="Platform2" index="1"]
-position = Vector2( -0.0540161, 0.0794067 )
+position = Vector2( -175.595, 1.49908 )
 shape = SubResource( 1 )
 
 [node name="CheckpointAnnounceArea" parent="." index="3" instance=ExtResource( 3 )]

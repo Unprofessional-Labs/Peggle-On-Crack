@@ -1,18 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Display/ScreenEffects.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Entities/PlayerBall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Environment/Platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Display/Text.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Environment/PauseTimerArea.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Generation/Structures.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 64, 20 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 448, 680 )
 
 [sub_resource type="RectangleShape2D" id=4]
 resource_local_to_scene = true
@@ -50,25 +46,31 @@ margin_bottom = 32.0
 position = Vector2( 0, 12 )
 shape = SubResource( 1 )
 
-[node name="PauseTimerArea" parent="." instance=ExtResource( 5 )]
-collision_mask = 2
-
-[node name="CollisionShape2D" parent="PauseTimerArea" index="0"]
-position = Vector2( 0, 680 )
-shape = SubResource( 2 )
-
 [node name="Structures" parent="." instance=ExtResource( 6 )]
 
-[node name="UnloadedStructureBarrier" parent="." instance=ExtResource( 3 )]
+[node name="UnloadedStructureBarrierStart" parent="." instance=ExtResource( 3 )]
 position = Vector2( -2432, 256 )
 
-[node name="NinePatchRect" parent="UnloadedStructureBarrier" index="0"]
+[node name="NinePatchRect" parent="UnloadedStructureBarrierStart" index="0"]
+margin_left = -832.0
+margin_top = -264.0
+margin_right = 832.0
+margin_bottom = 0.0
+
+[node name="CollisionShape2D" parent="UnloadedStructureBarrierStart" index="1"]
+position = Vector2( 0, -132 )
+shape = SubResource( 4 )
+
+[node name="UnloadedStructureBarrierEnd" parent="." instance=ExtResource( 3 )]
+position = Vector2( -2432, 256 )
+
+[node name="NinePatchRect" parent="UnloadedStructureBarrierEnd" index="0"]
 margin_left = -832.0
 margin_top = 0.0
 margin_right = 832.0
 margin_bottom = 264.0
 
-[node name="CollisionShape2D" parent="UnloadedStructureBarrier" index="1"]
+[node name="CollisionShape2D" parent="UnloadedStructureBarrierEnd" index="1"]
 position = Vector2( 0, 132 )
 shape = SubResource( 4 )
 
@@ -77,6 +79,6 @@ shape = SubResource( 4 )
 [editable path="ScreenEffects"]
 [editable path="PlayerBall"]
 [editable path="Platform"]
-[editable path="PauseTimerArea"]
 [editable path="Structures"]
-[editable path="UnloadedStructureBarrier"]
+[editable path="UnloadedStructureBarrierStart"]
+[editable path="UnloadedStructureBarrierEnd"]

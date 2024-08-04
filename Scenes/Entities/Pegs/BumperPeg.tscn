@@ -21,7 +21,7 @@ radius = 8.0
 scale = Vector2( 1.75, 1.75 )
 script = ExtResource( 2 )
 HP = 4
-POINTS = 25
+POINTS = 5
 FORCE = 600
 
 [node name="CollisionShape2D" parent="." index="0"]

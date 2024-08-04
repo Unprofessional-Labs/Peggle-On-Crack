@@ -16,7 +16,7 @@ radius = 8.0
 
 [node name="BumperPegIndestructible" instance=ExtResource( 1 )]
 HP = 1000
-POINTS = 1
+POINTS = 0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 2 )

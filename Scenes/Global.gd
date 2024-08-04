@@ -50,6 +50,7 @@ func initialize() -> void:
 	GAME_VAR = {
 		"score": 0,
 		"timer": 90,
+		"combo": 0,
 		"can_dash": true,
 		"dash_cooldown_remaining_decimal": 0,
 		"time_is_up": false,
@@ -118,6 +119,7 @@ func _process(delta: float) -> void:
 		if GAME_VAR.timer > 0:
 			GAME_VAR.timer -= delta * time_ticking_multiplier
 			GAME_VAR.timer = max(0, GAME_VAR.timer)
+			GAME_VAR.time_is_up = false
 		else:
 			GAME_VAR.time_is_up = true
 	
@@ -143,3 +145,10 @@ func _process(delta: float) -> void:
 	for j in time_scales:
 		productTimeScale *= time_scales[j]
 	Engine.time_scale = productTimeScale
+
+func add_combo():
+	GAME_VAR.combo += 1
+	$ComboTimer.start()
+
+func _on_ComboTimer_timeout() -> void:
+	GAME_VAR.combo = 0

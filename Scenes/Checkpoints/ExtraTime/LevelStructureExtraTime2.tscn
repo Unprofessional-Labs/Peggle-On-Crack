@@ -275,89 +275,89 @@ offsetSeconds = 0.5
 [node name="Interval" parent="Movement2" index="2"]
 wait_time = 1.5
 
-[node name="ExtraTimePeg122" parent="." index="75" instance=ExtResource( 3 )]
-position = Vector2( -96, 792 )
-
-[node name="ExtraTimePeg123" parent="." index="76" instance=ExtResource( 3 )]
-position = Vector2( -64, 824 )
-
-[node name="ExtraTimePeg124" parent="." index="77" instance=ExtResource( 3 )]
-position = Vector2( -32, 792 )
-
-[node name="ExtraTimePeg125" parent="." index="78" instance=ExtResource( 3 )]
-position = Vector2( 0, 824 )
-
-[node name="ExtraTimePeg126" parent="." index="79" instance=ExtResource( 3 )]
-position = Vector2( 32, 792 )
-
-[node name="ExtraTimePeg5s20" parent="." index="80" instance=ExtResource( 4 )]
-position = Vector2( -32, 856 )
-
-[node name="ExtraTimePeg5s21" parent="." index="81" instance=ExtResource( 4 )]
-position = Vector2( 32, 856 )
-
-[node name="ExtraTimePeg5s22" parent="." index="82" instance=ExtResource( 4 )]
-position = Vector2( 0, 888 )
-
-[node name="ExtraTimePeg127" parent="." index="83" instance=ExtResource( 3 )]
-position = Vector2( 64, 824 )
-
-[node name="ExtraTimePeg128" parent="." index="84" instance=ExtResource( 3 )]
-position = Vector2( 96, 792 )
-
-[node name="ExtraTimePeg129" parent="." index="85" instance=ExtResource( 3 )]
-position = Vector2( -96, 856 )
-
-[node name="ExtraTimePeg130" parent="." index="86" instance=ExtResource( 3 )]
-position = Vector2( -64, 888 )
-
-[node name="ExtraTimePeg131" parent="." index="87" instance=ExtResource( 3 )]
-position = Vector2( 64, 888 )
-
-[node name="ExtraTimePeg132" parent="." index="88" instance=ExtResource( 3 )]
-position = Vector2( 96, 856 )
-
-[node name="ExtraTimePeg133" parent="." index="89" instance=ExtResource( 3 )]
-position = Vector2( -96, 920 )
-
-[node name="ExtraTimePeg134" parent="." index="90" instance=ExtResource( 3 )]
-position = Vector2( -64, 952 )
-
-[node name="ExtraTimePeg135" parent="." index="91" instance=ExtResource( 3 )]
-position = Vector2( -32, 920 )
-
-[node name="ExtraTimePeg136" parent="." index="92" instance=ExtResource( 3 )]
-position = Vector2( 0, 952 )
-
-[node name="ExtraTimePeg137" parent="." index="93" instance=ExtResource( 3 )]
-position = Vector2( 32, 920 )
-
-[node name="ExtraTimePeg5s23" parent="." index="94" instance=ExtResource( 4 )]
+[node name="ExtraTimePeg5s23" parent="." index="75" instance=ExtResource( 4 )]
 position = Vector2( -32, 984 )
 
-[node name="ExtraTimePeg5s24" parent="." index="95" instance=ExtResource( 4 )]
+[node name="ExtraTimePeg5s24" parent="." index="76" instance=ExtResource( 4 )]
 position = Vector2( 32, 984 )
 
-[node name="ExtraTimePeg5s25" parent="." index="96" instance=ExtResource( 4 )]
+[node name="ExtraTimePeg5s25" parent="." index="77" instance=ExtResource( 4 )]
 position = Vector2( 0, 1016 )
 
-[node name="ExtraTimePeg138" parent="." index="97" instance=ExtResource( 3 )]
-position = Vector2( 64, 952 )
-
-[node name="ExtraTimePeg139" parent="." index="98" instance=ExtResource( 3 )]
-position = Vector2( 96, 920 )
-
-[node name="ExtraTimePeg140" parent="." index="99" instance=ExtResource( 3 )]
+[node name="ExtraTimePeg5s26" parent="." index="78" instance=ExtResource( 4 )]
 position = Vector2( -96, 984 )
 
-[node name="ExtraTimePeg141" parent="." index="100" instance=ExtResource( 3 )]
+[node name="ExtraTimePeg5s27" parent="." index="79" instance=ExtResource( 4 )]
 position = Vector2( -64, 1016 )
 
-[node name="ExtraTimePeg142" parent="." index="101" instance=ExtResource( 3 )]
+[node name="ExtraTimePeg5s28" parent="." index="80" instance=ExtResource( 4 )]
+position = Vector2( 96, 984 )
+
+[node name="ExtraTimePeg5s29" parent="." index="81" instance=ExtResource( 4 )]
 position = Vector2( 64, 1016 )
 
-[node name="ExtraTimePeg143" parent="." index="102" instance=ExtResource( 3 )]
-position = Vector2( 96, 984 )
+[node name="ExtraTimePeg5s30" parent="." index="82" instance=ExtResource( 4 )]
+position = Vector2( -32, 920 )
+
+[node name="ExtraTimePeg5s31" parent="." index="83" instance=ExtResource( 4 )]
+position = Vector2( 32, 920 )
+
+[node name="ExtraTimePeg5s32" parent="." index="84" instance=ExtResource( 4 )]
+position = Vector2( 0, 952 )
+
+[node name="ExtraTimePeg5s33" parent="." index="85" instance=ExtResource( 4 )]
+position = Vector2( -96, 920 )
+
+[node name="ExtraTimePeg5s34" parent="." index="86" instance=ExtResource( 4 )]
+position = Vector2( -64, 952 )
+
+[node name="ExtraTimePeg5s35" parent="." index="87" instance=ExtResource( 4 )]
+position = Vector2( 96, 920 )
+
+[node name="ExtraTimePeg5s36" parent="." index="88" instance=ExtResource( 4 )]
+position = Vector2( 64, 952 )
+
+[node name="ExtraTimePeg5s37" parent="." index="89" instance=ExtResource( 4 )]
+position = Vector2( -32, 856 )
+
+[node name="ExtraTimePeg5s38" parent="." index="90" instance=ExtResource( 4 )]
+position = Vector2( 32, 856 )
+
+[node name="ExtraTimePeg5s39" parent="." index="91" instance=ExtResource( 4 )]
+position = Vector2( 0, 888 )
+
+[node name="ExtraTimePeg5s40" parent="." index="92" instance=ExtResource( 4 )]
+position = Vector2( -96, 856 )
+
+[node name="ExtraTimePeg5s41" parent="." index="93" instance=ExtResource( 4 )]
+position = Vector2( -64, 888 )
+
+[node name="ExtraTimePeg5s42" parent="." index="94" instance=ExtResource( 4 )]
+position = Vector2( 96, 856 )
+
+[node name="ExtraTimePeg5s43" parent="." index="95" instance=ExtResource( 4 )]
+position = Vector2( 64, 888 )
+
+[node name="ExtraTimePeg5s44" parent="." index="96" instance=ExtResource( 4 )]
+position = Vector2( -32, 792 )
+
+[node name="ExtraTimePeg5s45" parent="." index="97" instance=ExtResource( 4 )]
+position = Vector2( 32, 792 )
+
+[node name="ExtraTimePeg5s46" parent="." index="98" instance=ExtResource( 4 )]
+position = Vector2( 0, 824 )
+
+[node name="ExtraTimePeg5s47" parent="." index="99" instance=ExtResource( 4 )]
+position = Vector2( -96, 792 )
+
+[node name="ExtraTimePeg5s48" parent="." index="100" instance=ExtResource( 4 )]
+position = Vector2( -64, 824 )
+
+[node name="ExtraTimePeg5s49" parent="." index="101" instance=ExtResource( 4 )]
+position = Vector2( 96, 792 )
+
+[node name="ExtraTimePeg5s50" parent="." index="102" instance=ExtResource( 4 )]
+position = Vector2( 64, 824 )
 
 [editable path="Platform"]
 [editable path="Platform2"]

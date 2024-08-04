@@ -6,7 +6,7 @@ var is_piercing_powerup = false
 var multiballLists = [] # 2d array of balls
 var ghost_positions = []
 
-var UNSTACKABLE_POWERUPS = [Global.POWERUP.super_bounce, Global.POWERUP.bamboozle, Global.POWERUP.pierce]
+var UNSTACKABLE_POWERUPS = [Global.POWERUP.super_bounce, Global.POWERUP.bamboozle, Global.POWERUP.pierce, Global.POWERUP.enlarge]
 
 func toggle_powerup(powerup: int, enable: bool) -> void:
 	if !enable:
@@ -64,13 +64,18 @@ func toggle_powerup(powerup: int, enable: bool) -> void:
 		Global.POWERUP.enlarge:
 			var scale_multiplier:Vector2 = ball.get_node("CollisionShape2D").scale
 			if enable:
-				scale_multiplier *= Vector2(2.5, 2.5)
+				scale_multiplier *= Vector2(1.5, 1.5)
 			else:
-				scale_multiplier /= Vector2(2.5, 2.5)
+				scale_multiplier = Vector2(1, 1)
+				# scale_multiplier = Vector2(max(1, scale_multiplier.x), max(1, scale_multiplier.y))
 			
 			ball.get_node("CollisionShape2D").scale = scale_multiplier
 			ball.get_node("Hitbox").scale = scale_multiplier
 			ball.get_node("Sprite").scale = scale_multiplier
+			
+			is_piercing_powerup = enable
+			ball.set_collision_mask_bit(5, !enable)
+			ball.get_node("TrajectoryLine/Raycast").set_collision_mask_bit(5, !enable)
 
 		Global.POWERUP.ghost:
 			if enable:

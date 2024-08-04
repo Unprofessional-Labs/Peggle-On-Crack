@@ -14,10 +14,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$Text.bbcode_text = " " + str(Global.GAME_VAR.score)
+	
 	if Global.multipliers.size() > 0:
 		var sorted = Global.multipliers
 		sorted.sort()
 		sorted.invert()
-		$Text2.bbcode_text = " [color=#FFFF00]x" + str(Global.get_multiplier()) + "[/color] "
+		$Text2.bbcode_text = " [color=#FFFF00]x" + str(Global.get_multiplier()) + "[/color]"
 	else:
 		$Text2.bbcode_text = ""
+		
+	if Global.GAME_VAR.combo > 0:
+		$Text3.bbcode_text = " [color=#03fcec]" + str(Global.GAME_VAR.combo) + " combo![/color]"
+	else:
+		$Text3.bbcode_text = ""

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Entities/Peg.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Art/pegs.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Audio/collide.wav" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/Handlers/CheckpointDependentModulateHandler.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 resource_local_to_scene = true
@@ -96,6 +97,8 @@ texture = ExtResource( 2 )
 hframes = 8
 vframes = 8
 frame = 1
+
+[node name="CheckpointDependentModulateHandler" parent="Sprite/Sprite" instance=ExtResource( 4 )]
 
 [node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )

@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Checkpoints/LevelStructure.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Environment/Platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Entities/Pegs/ExtraTimePeg.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Entities/Pegs/ExtraTimePeg5s.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Environment/Rotation.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Entities/Pegs/ExtraTimePeg25s.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Entities/Pegs/BombPegReverse.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -13,7 +18,7 @@ extents = Vector2( 512, 512 )
 margin_bottom = 1024.0
 
 [node name="Platform" parent="." index="1" instance=ExtResource( 2 )]
-position = Vector2( -216, 8 )
+position = Vector2( -248, 8 )
 
 [node name="NinePatchRect" parent="Platform" index="0"]
 margin_left = -960.0
@@ -24,7 +29,7 @@ position = Vector2( -448, 504 )
 shape = SubResource( 1 )
 
 [node name="Platform2" parent="." index="2" instance=ExtResource( 2 )]
-position = Vector2( 216, 8 )
+position = Vector2( 248, 8 )
 
 [node name="NinePatchRect" parent="Platform2" index="0"]
 margin_right = 960.0
@@ -33,6 +38,615 @@ margin_bottom = 1016.0
 [node name="CollisionShape2D" parent="Platform2" index="1"]
 position = Vector2( 448, 504 )
 shape = SubResource( 1 )
+
+[node name="ExtraTimePeg" parent="." index="3" instance=ExtResource( 4 )]
+position = Vector2( -160, 88 )
+
+[node name="ExtraTimePeg2" parent="." index="4" instance=ExtResource( 4 )]
+position = Vector2( -128, 120 )
+
+[node name="ExtraTimePeg4" parent="." index="5" instance=ExtResource( 4 )]
+position = Vector2( -64, 120 )
+
+[node name="ExtraTimePeg5" parent="." index="6" instance=ExtResource( 4 )]
+position = Vector2( -32, 88 )
+
+[node name="ExtraTimePeg6" parent="." index="7" instance=ExtResource( 4 )]
+position = Vector2( 0, 120 )
+
+[node name="ExtraTimePeg7" parent="." index="8" instance=ExtResource( 4 )]
+position = Vector2( 32, 88 )
+
+[node name="ExtraTimePeg8" parent="." index="9" instance=ExtResource( 4 )]
+position = Vector2( 64, 120 )
+
+[node name="ExtraTimePeg10" parent="." index="10" instance=ExtResource( 4 )]
+position = Vector2( 128, 120 )
+
+[node name="ExtraTimePeg11" parent="." index="11" instance=ExtResource( 4 )]
+position = Vector2( 160, 88 )
+
+[node name="ExtraTimePeg5s" parent="." index="12" instance=ExtResource( 5 )]
+position = Vector2( -96, 88 )
+
+[node name="ExtraTimePeg5s2" parent="." index="13" instance=ExtResource( 5 )]
+position = Vector2( 96, 88 )
+
+[node name="ExtraTimePeg3" parent="." index="14" instance=ExtResource( 4 )]
+position = Vector2( -160, 152 )
+
+[node name="ExtraTimePeg9" parent="." index="15" instance=ExtResource( 4 )]
+position = Vector2( -128, 184 )
+
+[node name="ExtraTimePeg12" parent="." index="16" instance=ExtResource( 4 )]
+position = Vector2( -64, 184 )
+
+[node name="ExtraTimePeg13" parent="." index="17" instance=ExtResource( 4 )]
+position = Vector2( -32, 152 )
+
+[node name="ExtraTimePeg14" parent="." index="18" instance=ExtResource( 4 )]
+position = Vector2( 0, 184 )
+
+[node name="ExtraTimePeg15" parent="." index="19" instance=ExtResource( 4 )]
+position = Vector2( 32, 152 )
+
+[node name="ExtraTimePeg16" parent="." index="20" instance=ExtResource( 4 )]
+position = Vector2( 64, 184 )
+
+[node name="ExtraTimePeg17" parent="." index="21" instance=ExtResource( 4 )]
+position = Vector2( 128, 184 )
+
+[node name="ExtraTimePeg18" parent="." index="22" instance=ExtResource( 4 )]
+position = Vector2( 160, 152 )
+
+[node name="ExtraTimePeg5s3" parent="." index="23" instance=ExtResource( 5 )]
+position = Vector2( -96, 152 )
+
+[node name="ExtraTimePeg5s4" parent="." index="24" instance=ExtResource( 5 )]
+position = Vector2( 96, 152 )
+
+[node name="ExtraTimePeg19" parent="." index="25" instance=ExtResource( 4 )]
+position = Vector2( -160, 216 )
+
+[node name="ExtraTimePeg20" parent="." index="26" instance=ExtResource( 4 )]
+position = Vector2( -128, 248 )
+
+[node name="ExtraTimePeg21" parent="." index="27" instance=ExtResource( 4 )]
+position = Vector2( -64, 248 )
+
+[node name="ExtraTimePeg22" parent="." index="28" instance=ExtResource( 4 )]
+position = Vector2( -32, 216 )
+
+[node name="ExtraTimePeg23" parent="." index="29" instance=ExtResource( 4 )]
+position = Vector2( 0, 248 )
+
+[node name="ExtraTimePeg24" parent="." index="30" instance=ExtResource( 4 )]
+position = Vector2( 32, 216 )
+
+[node name="ExtraTimePeg25" parent="." index="31" instance=ExtResource( 4 )]
+position = Vector2( 64, 248 )
+
+[node name="ExtraTimePeg26" parent="." index="32" instance=ExtResource( 4 )]
+position = Vector2( 128, 248 )
+
+[node name="ExtraTimePeg27" parent="." index="33" instance=ExtResource( 4 )]
+position = Vector2( 160, 216 )
+
+[node name="ExtraTimePeg5s5" parent="." index="34" instance=ExtResource( 5 )]
+position = Vector2( -96, 216 )
+
+[node name="ExtraTimePeg5s6" parent="." index="35" instance=ExtResource( 5 )]
+position = Vector2( 96, 216 )
+
+[node name="ExtraTimePeg32" parent="." index="36" instance=ExtResource( 4 )]
+position = Vector2( 0, 312 )
+
+[node name="ExtraTimePeg41" parent="." index="37" instance=ExtResource( 4 )]
+position = Vector2( 0, 376 )
+
+[node name="ExtraTimePeg47" parent="." index="38" instance=ExtResource( 4 )]
+position = Vector2( -128, 440 )
+
+[node name="ExtraTimePeg48" parent="." index="39" instance=ExtResource( 4 )]
+position = Vector2( -64, 440 )
+
+[node name="ExtraTimePeg50" parent="." index="40" instance=ExtResource( 4 )]
+position = Vector2( 0, 440 )
+
+[node name="ExtraTimePeg52" parent="." index="41" instance=ExtResource( 4 )]
+position = Vector2( 64, 440 )
+
+[node name="ExtraTimePeg53" parent="." index="42" instance=ExtResource( 4 )]
+position = Vector2( 128, 440 )
+
+[node name="ExtraTimePeg55" parent="." index="43" instance=ExtResource( 4 )]
+position = Vector2( -160, 472 )
+
+[node name="ExtraTimePeg56" parent="." index="44" instance=ExtResource( 4 )]
+position = Vector2( -128, 504 )
+
+[node name="ExtraTimePeg57" parent="." index="45" instance=ExtResource( 4 )]
+position = Vector2( -64, 504 )
+
+[node name="ExtraTimePeg58" parent="." index="46" instance=ExtResource( 4 )]
+position = Vector2( -32, 472 )
+
+[node name="ExtraTimePeg59" parent="." index="47" instance=ExtResource( 4 )]
+position = Vector2( 0, 504 )
+
+[node name="ExtraTimePeg60" parent="." index="48" instance=ExtResource( 4 )]
+position = Vector2( 32, 472 )
+
+[node name="ExtraTimePeg61" parent="." index="49" instance=ExtResource( 4 )]
+position = Vector2( 64, 504 )
+
+[node name="ExtraTimePeg62" parent="." index="50" instance=ExtResource( 4 )]
+position = Vector2( 128, 504 )
+
+[node name="ExtraTimePeg63" parent="." index="51" instance=ExtResource( 4 )]
+position = Vector2( 160, 472 )
+
+[node name="ExtraTimePeg5s13" parent="." index="52" instance=ExtResource( 5 )]
+position = Vector2( -96, 472 )
+
+[node name="ExtraTimePeg5s14" parent="." index="53" instance=ExtResource( 5 )]
+position = Vector2( 96, 472 )
+
+[node name="ExtraTimePeg64" parent="." index="54" instance=ExtResource( 4 )]
+position = Vector2( -160, 536 )
+
+[node name="ExtraTimePeg65" parent="." index="55" instance=ExtResource( 4 )]
+position = Vector2( -128, 568 )
+
+[node name="ExtraTimePeg66" parent="." index="56" instance=ExtResource( 4 )]
+position = Vector2( -64, 568 )
+
+[node name="ExtraTimePeg67" parent="." index="57" instance=ExtResource( 4 )]
+position = Vector2( -32, 536 )
+
+[node name="ExtraTimePeg69" parent="." index="58" instance=ExtResource( 4 )]
+position = Vector2( 32, 536 )
+
+[node name="ExtraTimePeg70" parent="." index="59" instance=ExtResource( 4 )]
+position = Vector2( 64, 568 )
+
+[node name="ExtraTimePeg71" parent="." index="60" instance=ExtResource( 4 )]
+position = Vector2( 128, 568 )
+
+[node name="ExtraTimePeg72" parent="." index="61" instance=ExtResource( 4 )]
+position = Vector2( 160, 536 )
+
+[node name="ExtraTimePeg5s15" parent="." index="62" instance=ExtResource( 5 )]
+position = Vector2( -96, 536 )
+
+[node name="ExtraTimePeg5s16" parent="." index="63" instance=ExtResource( 5 )]
+position = Vector2( 96, 536 )
+
+[node name="ExtraTimePeg73" parent="." index="64" instance=ExtResource( 4 )]
+position = Vector2( -160, 600 )
+
+[node name="ExtraTimePeg74" parent="." index="65" instance=ExtResource( 4 )]
+position = Vector2( -128, 632 )
+
+[node name="ExtraTimePeg80" parent="." index="66" instance=ExtResource( 4 )]
+position = Vector2( 128, 632 )
+
+[node name="ExtraTimePeg81" parent="." index="67" instance=ExtResource( 4 )]
+position = Vector2( 160, 600 )
+
+[node name="ExtraTimePeg5s17" parent="." index="68" instance=ExtResource( 5 )]
+position = Vector2( -96, 600 )
+
+[node name="ExtraTimePeg5s18" parent="." index="69" instance=ExtResource( 5 )]
+position = Vector2( 96, 600 )
+
+[node name="ExtraTimePeg82" parent="." index="70" instance=ExtResource( 4 )]
+position = Vector2( -160, 664 )
+
+[node name="ExtraTimePeg83" parent="." index="71" instance=ExtResource( 4 )]
+position = Vector2( -128, 696 )
+
+[node name="ExtraTimePeg89" parent="." index="72" instance=ExtResource( 4 )]
+position = Vector2( 128, 696 )
+
+[node name="ExtraTimePeg90" parent="." index="73" instance=ExtResource( 4 )]
+position = Vector2( 160, 664 )
+
+[node name="ExtraTimePeg91" parent="." index="74" instance=ExtResource( 4 )]
+position = Vector2( -160, 728 )
+
+[node name="ExtraTimePeg92" parent="." index="75" instance=ExtResource( 4 )]
+position = Vector2( -128, 760 )
+
+[node name="ExtraTimePeg93" parent="." index="76" instance=ExtResource( 4 )]
+position = Vector2( -64, 760 )
+
+[node name="ExtraTimePeg97" parent="." index="77" instance=ExtResource( 4 )]
+position = Vector2( 64, 760 )
+
+[node name="ExtraTimePeg98" parent="." index="78" instance=ExtResource( 4 )]
+position = Vector2( 128, 760 )
+
+[node name="ExtraTimePeg99" parent="." index="79" instance=ExtResource( 4 )]
+position = Vector2( 160, 728 )
+
+[node name="ExtraTimePeg5s21" parent="." index="80" instance=ExtResource( 5 )]
+position = Vector2( -96, 728 )
+
+[node name="ExtraTimePeg5s22" parent="." index="81" instance=ExtResource( 5 )]
+position = Vector2( 96, 728 )
+
+[node name="ExtraTimePeg100" parent="." index="82" instance=ExtResource( 4 )]
+position = Vector2( -160, 792 )
+
+[node name="ExtraTimePeg101" parent="." index="83" instance=ExtResource( 4 )]
+position = Vector2( -128, 824 )
+
+[node name="ExtraTimePeg102" parent="." index="84" instance=ExtResource( 4 )]
+position = Vector2( -64, 824 )
+
+[node name="ExtraTimePeg103" parent="." index="85" instance=ExtResource( 4 )]
+position = Vector2( -32, 792 )
+
+[node name="ExtraTimePeg104" parent="." index="86" instance=ExtResource( 4 )]
+position = Vector2( 0, 824 )
+
+[node name="ExtraTimePeg105" parent="." index="87" instance=ExtResource( 4 )]
+position = Vector2( 32, 792 )
+
+[node name="ExtraTimePeg106" parent="." index="88" instance=ExtResource( 4 )]
+position = Vector2( 64, 824 )
+
+[node name="ExtraTimePeg107" parent="." index="89" instance=ExtResource( 4 )]
+position = Vector2( 128, 824 )
+
+[node name="ExtraTimePeg108" parent="." index="90" instance=ExtResource( 4 )]
+position = Vector2( 160, 792 )
+
+[node name="ExtraTimePeg5s23" parent="." index="91" instance=ExtResource( 5 )]
+position = Vector2( -96, 792 )
+
+[node name="ExtraTimePeg5s24" parent="." index="92" instance=ExtResource( 5 )]
+position = Vector2( 96, 792 )
+
+[node name="ExtraTimePeg109" parent="." index="93" instance=ExtResource( 4 )]
+position = Vector2( -160, 856 )
+
+[node name="ExtraTimePeg110" parent="." index="94" instance=ExtResource( 4 )]
+position = Vector2( -128, 888 )
+
+[node name="ExtraTimePeg111" parent="." index="95" instance=ExtResource( 4 )]
+position = Vector2( -64, 888 )
+
+[node name="ExtraTimePeg112" parent="." index="96" instance=ExtResource( 4 )]
+position = Vector2( -32, 856 )
+
+[node name="ExtraTimePeg113" parent="." index="97" instance=ExtResource( 4 )]
+position = Vector2( 0, 888 )
+
+[node name="ExtraTimePeg114" parent="." index="98" instance=ExtResource( 4 )]
+position = Vector2( 32, 856 )
+
+[node name="ExtraTimePeg115" parent="." index="99" instance=ExtResource( 4 )]
+position = Vector2( 64, 888 )
+
+[node name="ExtraTimePeg116" parent="." index="100" instance=ExtResource( 4 )]
+position = Vector2( 128, 888 )
+
+[node name="ExtraTimePeg117" parent="." index="101" instance=ExtResource( 4 )]
+position = Vector2( 160, 856 )
+
+[node name="ExtraTimePeg5s25" parent="." index="102" instance=ExtResource( 5 )]
+position = Vector2( -96, 856 )
+
+[node name="ExtraTimePeg5s26" parent="." index="103" instance=ExtResource( 5 )]
+position = Vector2( 96, 856 )
+
+[node name="Rotation" parent="." index="104" instance=ExtResource( 6 )]
+position = Vector2( -96, 344 )
+
+[node name="ExtraTimePeg5s" parent="Rotation" index="0" instance=ExtResource( 5 )]
+position = Vector2( 0, -64 )
+
+[node name="ExtraTimePeg5s2" parent="Rotation" index="1" instance=ExtResource( 5 )]
+position = Vector2( 0, 64 )
+
+[node name="ExtraTimePeg5s3" parent="Rotation" index="2" instance=ExtResource( 5 )]
+position = Vector2( 64, 0 )
+
+[node name="ExtraTimePeg5s4" parent="Rotation" index="3" instance=ExtResource( 5 )]
+position = Vector2( -64, 0 )
+
+[node name="ExtraTimePeg" parent="Rotation" index="4" instance=ExtResource( 4 )]
+position = Vector2( 32, -55.4257 )
+
+[node name="ExtraTimePeg2" parent="Rotation" index="5" instance=ExtResource( 4 )]
+position = Vector2( 55.4257, 32 )
+
+[node name="ExtraTimePeg3" parent="Rotation" index="6" instance=ExtResource( 4 )]
+position = Vector2( -32, 55.4257 )
+
+[node name="ExtraTimePeg4" parent="Rotation" index="7" instance=ExtResource( 4 )]
+position = Vector2( -55.4257, -32 )
+
+[node name="ExtraTimePeg5" parent="Rotation" index="8" instance=ExtResource( 4 )]
+position = Vector2( 55.4256, -32.0001 )
+
+[node name="ExtraTimePeg6" parent="Rotation" index="9" instance=ExtResource( 4 )]
+position = Vector2( 32.0001, 55.4256 )
+
+[node name="ExtraTimePeg7" parent="Rotation" index="10" instance=ExtResource( 4 )]
+position = Vector2( -55.4256, 32.0001 )
+
+[node name="ExtraTimePeg8" parent="Rotation" index="11" instance=ExtResource( 4 )]
+position = Vector2( -32.0001, -55.4256 )
+
+[node name="BombPegReverse" parent="Rotation" index="12" instance=ExtResource( 8 )]
+
+[node name="Rotation2" parent="." index="105" instance=ExtResource( 6 )]
+position = Vector2( 96, 344 )
+roundsPerSecond = -0.5
+
+[node name="ExtraTimePeg5s" parent="Rotation2" index="0" instance=ExtResource( 5 )]
+position = Vector2( 0, -64 )
+
+[node name="ExtraTimePeg5s2" parent="Rotation2" index="1" instance=ExtResource( 5 )]
+position = Vector2( 0, 64 )
+
+[node name="ExtraTimePeg5s3" parent="Rotation2" index="2" instance=ExtResource( 5 )]
+position = Vector2( 64, 0 )
+
+[node name="ExtraTimePeg5s4" parent="Rotation2" index="3" instance=ExtResource( 5 )]
+position = Vector2( -64, 0 )
+
+[node name="ExtraTimePeg" parent="Rotation2" index="4" instance=ExtResource( 4 )]
+position = Vector2( 32, -55.4257 )
+
+[node name="ExtraTimePeg2" parent="Rotation2" index="5" instance=ExtResource( 4 )]
+position = Vector2( 55.4257, 32 )
+
+[node name="ExtraTimePeg3" parent="Rotation2" index="6" instance=ExtResource( 4 )]
+position = Vector2( -32, 55.4257 )
+
+[node name="ExtraTimePeg4" parent="Rotation2" index="7" instance=ExtResource( 4 )]
+position = Vector2( -55.4257, -32 )
+
+[node name="ExtraTimePeg5" parent="Rotation2" index="8" instance=ExtResource( 4 )]
+position = Vector2( 55.4256, -32.0001 )
+
+[node name="ExtraTimePeg6" parent="Rotation2" index="9" instance=ExtResource( 4 )]
+position = Vector2( 32.0001, 55.4256 )
+
+[node name="ExtraTimePeg7" parent="Rotation2" index="10" instance=ExtResource( 4 )]
+position = Vector2( -55.4256, 32.0001 )
+
+[node name="ExtraTimePeg8" parent="Rotation2" index="11" instance=ExtResource( 4 )]
+position = Vector2( -32.0001, -55.4256 )
+
+[node name="BombPegReverse" parent="Rotation2" index="12" instance=ExtResource( 8 )]
+
+[node name="Rotation3" parent="." index="106" instance=ExtResource( 6 )]
+position = Vector2( 0, 664 )
+
+[node name="ExtraTimePeg5s" parent="Rotation3" index="0" instance=ExtResource( 5 )]
+position = Vector2( 0, -64 )
+
+[node name="ExtraTimePeg5s2" parent="Rotation3" index="1" instance=ExtResource( 5 )]
+position = Vector2( 0, 64 )
+
+[node name="ExtraTimePeg5s3" parent="Rotation3" index="2" instance=ExtResource( 5 )]
+position = Vector2( 64, 0 )
+
+[node name="ExtraTimePeg5s4" parent="Rotation3" index="3" instance=ExtResource( 5 )]
+position = Vector2( -64, 0 )
+
+[node name="ExtraTimePeg" parent="Rotation3" index="4" instance=ExtResource( 4 )]
+position = Vector2( 32, -55.4257 )
+
+[node name="ExtraTimePeg2" parent="Rotation3" index="5" instance=ExtResource( 4 )]
+position = Vector2( 55.4257, 32 )
+
+[node name="ExtraTimePeg3" parent="Rotation3" index="6" instance=ExtResource( 4 )]
+position = Vector2( -32, 55.4257 )
+
+[node name="ExtraTimePeg4" parent="Rotation3" index="7" instance=ExtResource( 4 )]
+position = Vector2( -55.4257, -32 )
+
+[node name="ExtraTimePeg5" parent="Rotation3" index="8" instance=ExtResource( 4 )]
+position = Vector2( 55.4256, -32.0001 )
+
+[node name="ExtraTimePeg6" parent="Rotation3" index="9" instance=ExtResource( 4 )]
+position = Vector2( 32.0001, 55.4256 )
+
+[node name="ExtraTimePeg7" parent="Rotation3" index="10" instance=ExtResource( 4 )]
+position = Vector2( -55.4256, 32.0001 )
+
+[node name="ExtraTimePeg8" parent="Rotation3" index="11" instance=ExtResource( 4 )]
+position = Vector2( -32.0001, -55.4256 )
+
+[node name="Rotation4" parent="." index="107" instance=ExtResource( 6 )]
+position = Vector2( 0, 664 )
+roundsPerSecond = -0.5
+
+[node name="ExtraTimePeg5s" parent="Rotation4" index="0" instance=ExtResource( 5 )]
+position = Vector2( 0, -96 )
+
+[node name="ExtraTimePeg5s2" parent="Rotation4" index="1" instance=ExtResource( 5 )]
+position = Vector2( 0, 96 )
+
+[node name="ExtraTimePeg5s3" parent="Rotation4" index="2" instance=ExtResource( 5 )]
+position = Vector2( 96, 0 )
+
+[node name="ExtraTimePeg5s4" parent="Rotation4" index="3" instance=ExtResource( 5 )]
+position = Vector2( -96, 0 )
+
+[node name="ExtraTimePeg" parent="Rotation4" index="4" instance=ExtResource( 4 )]
+position = Vector2( 24.8466, -92.7289 )
+
+[node name="ExtraTimePeg2" parent="Rotation4" index="5" instance=ExtResource( 4 )]
+position = Vector2( -92.7289, -24.8466 )
+
+[node name="ExtraTimePeg3" parent="Rotation4" index="6" instance=ExtResource( 4 )]
+position = Vector2( -24.8466, 92.7289 )
+
+[node name="ExtraTimePeg4" parent="Rotation4" index="7" instance=ExtResource( 4 )]
+position = Vector2( 92.7289, 24.8466 )
+
+[node name="ExtraTimePeg5" parent="Rotation4" index="8" instance=ExtResource( 4 )]
+position = Vector2( 47.9999, -83.1385 )
+
+[node name="ExtraTimePeg6" parent="Rotation4" index="9" instance=ExtResource( 4 )]
+position = Vector2( -83.1385, -47.9999 )
+
+[node name="ExtraTimePeg7" parent="Rotation4" index="10" instance=ExtResource( 4 )]
+position = Vector2( -47.9999, 83.1385 )
+
+[node name="ExtraTimePeg8" parent="Rotation4" index="11" instance=ExtResource( 4 )]
+position = Vector2( 83.1385, 47.9999 )
+
+[node name="ExtraTimePeg9" parent="Rotation4" index="12" instance=ExtResource( 4 )]
+position = Vector2( 67.8822, -67.8823 )
+
+[node name="ExtraTimePeg10" parent="Rotation4" index="13" instance=ExtResource( 4 )]
+position = Vector2( -67.8823, -67.8822 )
+
+[node name="ExtraTimePeg11" parent="Rotation4" index="14" instance=ExtResource( 4 )]
+position = Vector2( -67.8822, 67.8823 )
+
+[node name="ExtraTimePeg12" parent="Rotation4" index="15" instance=ExtResource( 4 )]
+position = Vector2( 67.8823, 67.8822 )
+
+[node name="ExtraTimePeg13" parent="Rotation4" index="16" instance=ExtResource( 4 )]
+position = Vector2( 83.1384, -48.0001 )
+
+[node name="ExtraTimePeg14" parent="Rotation4" index="17" instance=ExtResource( 4 )]
+position = Vector2( -48.0001, -83.1384 )
+
+[node name="ExtraTimePeg15" parent="Rotation4" index="18" instance=ExtResource( 4 )]
+position = Vector2( -83.1384, 48.0001 )
+
+[node name="ExtraTimePeg16" parent="Rotation4" index="19" instance=ExtResource( 4 )]
+position = Vector2( 48.0001, 83.1384 )
+
+[node name="ExtraTimePeg17" parent="Rotation4" index="20" instance=ExtResource( 4 )]
+position = Vector2( 92.7288, -24.8468 )
+
+[node name="ExtraTimePeg18" parent="Rotation4" index="21" instance=ExtResource( 4 )]
+position = Vector2( -24.8468, -92.7288 )
+
+[node name="ExtraTimePeg19" parent="Rotation4" index="22" instance=ExtResource( 4 )]
+position = Vector2( -92.7288, 24.8468 )
+
+[node name="ExtraTimePeg20" parent="Rotation4" index="23" instance=ExtResource( 4 )]
+position = Vector2( 24.8468, 92.7288 )
+
+[node name="ExtraTimePeg25s" parent="Rotation4" index="24" instance=ExtResource( 7 )]
+position = Vector2( 0, -16 )
+
+[node name="ExtraTimePeg25s2" parent="Rotation4" index="25" instance=ExtResource( 7 )]
+position = Vector2( 13.8564, 7.99994 )
+
+[node name="ExtraTimePeg25s3" parent="Rotation4" index="26" instance=ExtResource( 7 )]
+position = Vector2( -13.8564, 7.99994 )
+
+[node name="ExtraTimePeg118" parent="." index="108" instance=ExtResource( 4 )]
+position = Vector2( -160, 920 )
+
+[node name="ExtraTimePeg119" parent="." index="109" instance=ExtResource( 4 )]
+position = Vector2( -128, 952 )
+
+[node name="ExtraTimePeg120" parent="." index="110" instance=ExtResource( 4 )]
+position = Vector2( -64, 952 )
+
+[node name="ExtraTimePeg121" parent="." index="111" instance=ExtResource( 4 )]
+position = Vector2( -32, 920 )
+
+[node name="ExtraTimePeg122" parent="." index="112" instance=ExtResource( 4 )]
+position = Vector2( 0, 952 )
+
+[node name="ExtraTimePeg123" parent="." index="113" instance=ExtResource( 4 )]
+position = Vector2( 32, 920 )
+
+[node name="ExtraTimePeg124" parent="." index="114" instance=ExtResource( 4 )]
+position = Vector2( 64, 952 )
+
+[node name="ExtraTimePeg125" parent="." index="115" instance=ExtResource( 4 )]
+position = Vector2( 128, 952 )
+
+[node name="ExtraTimePeg126" parent="." index="116" instance=ExtResource( 4 )]
+position = Vector2( 160, 920 )
+
+[node name="ExtraTimePeg5s27" parent="." index="117" instance=ExtResource( 5 )]
+position = Vector2( -96, 920 )
+
+[node name="ExtraTimePeg5s28" parent="." index="118" instance=ExtResource( 5 )]
+position = Vector2( 96, 920 )
+
+[node name="ExtraTimePeg127" parent="." index="119" instance=ExtResource( 4 )]
+position = Vector2( -160, 984 )
+
+[node name="ExtraTimePeg128" parent="." index="120" instance=ExtResource( 4 )]
+position = Vector2( -128, 1016 )
+
+[node name="ExtraTimePeg129" parent="." index="121" instance=ExtResource( 4 )]
+position = Vector2( -64, 1016 )
+
+[node name="ExtraTimePeg130" parent="." index="122" instance=ExtResource( 4 )]
+position = Vector2( -32, 984 )
+
+[node name="ExtraTimePeg131" parent="." index="123" instance=ExtResource( 4 )]
+position = Vector2( 0, 1016 )
+
+[node name="ExtraTimePeg132" parent="." index="124" instance=ExtResource( 4 )]
+position = Vector2( 32, 984 )
+
+[node name="ExtraTimePeg133" parent="." index="125" instance=ExtResource( 4 )]
+position = Vector2( 64, 1016 )
+
+[node name="ExtraTimePeg134" parent="." index="126" instance=ExtResource( 4 )]
+position = Vector2( 128, 1016 )
+
+[node name="ExtraTimePeg135" parent="." index="127" instance=ExtResource( 4 )]
+position = Vector2( 160, 984 )
+
+[node name="ExtraTimePeg5s29" parent="." index="128" instance=ExtResource( 5 )]
+position = Vector2( -96, 984 )
+
+[node name="ExtraTimePeg5s30" parent="." index="129" instance=ExtResource( 5 )]
+position = Vector2( 96, 984 )
+
+[node name="ExtraTimePeg28" parent="." index="130" instance=ExtResource( 4 )]
+position = Vector2( -160, 24 )
+
+[node name="ExtraTimePeg29" parent="." index="131" instance=ExtResource( 4 )]
+position = Vector2( -128, 56 )
+
+[node name="ExtraTimePeg30" parent="." index="132" instance=ExtResource( 4 )]
+position = Vector2( -64, 56 )
+
+[node name="ExtraTimePeg31" parent="." index="133" instance=ExtResource( 4 )]
+position = Vector2( -32, 24 )
+
+[node name="ExtraTimePeg33" parent="." index="134" instance=ExtResource( 4 )]
+position = Vector2( 0, 56 )
+
+[node name="ExtraTimePeg34" parent="." index="135" instance=ExtResource( 4 )]
+position = Vector2( 32, 24 )
+
+[node name="ExtraTimePeg35" parent="." index="136" instance=ExtResource( 4 )]
+position = Vector2( 64, 56 )
+
+[node name="ExtraTimePeg36" parent="." index="137" instance=ExtResource( 4 )]
+position = Vector2( 128, 56 )
+
+[node name="ExtraTimePeg37" parent="." index="138" instance=ExtResource( 4 )]
+position = Vector2( 160, 24 )
+
+[node name="ExtraTimePeg5s7" parent="." index="139" instance=ExtResource( 5 )]
+position = Vector2( -96, 24 )
+
+[node name="ExtraTimePeg5s8" parent="." index="140" instance=ExtResource( 5 )]
+position = Vector2( 96, 24 )
 
 [editable path="Platform"]
 [editable path="Platform2"]

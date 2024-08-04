@@ -11,7 +11,8 @@ onready var Player: PlayerBall = get_tree().get_root().get_node("")
 onready var initial_sprite_modulate = $Sprite.modulate
 
 func initalize_peg() -> void:
-	pass
+	if $Sprite/Sprite.frame == 1:
+		$Sprite/Sprite/CheckpointDependentModulateHandler.enabled = true
 
 func _ready() -> void:
 	$AnimationPlayer.play("RESET")
@@ -29,6 +30,7 @@ func dmg(body) -> void:
 	
 	if HP <= 0:
 		Global.GAME_VAR.score += FINAL_POINTS
+		Global.add_combo()
 		addlabel()
 		endtrigger(body)
 		remove()
