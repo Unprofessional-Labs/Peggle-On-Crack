@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Entities/PlayerBall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Environment/Platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Display/Text.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Entities/Pegs/PowerupPegs/PowerupPegSlowTime.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Entities/Pegs/BombPeg.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Generation/Structures.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -75,17 +75,9 @@ margin_bottom = 264.0
 position = Vector2( 0, 132 )
 shape = SubResource( 4 )
 
-[node name="PowerupPegSlowTime" parent="." instance=ExtResource( 5 )]
-position = Vector2( 56, 176 )
-
-[node name="PowerupPegSlowTime2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -40, 192 )
-
-[node name="PowerupPegSlowTime3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 56, 176 )
-
-[node name="PowerupPegSlowTime4" parent="." instance=ExtResource( 5 )]
-position = Vector2( -40, 192 )
+[node name="BombPeg" parent="." instance=ExtResource( 5 )]
+position = Vector2( 56, 184 )
+HP = 1
 
 [connection signal="body_entered" from="PlayerBall" to="ScreenEffects/Camera" method="_on_PlayerBall_body_entered"]
 

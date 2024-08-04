@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Entities/TrajectoryLine.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Display/Particles.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Handlers/PowerupHandler.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Resources/Visual/FadingParticleGradient.tres" type="Gradient" id=7]
 
 [sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
@@ -23,10 +24,6 @@ shader_param/time_scale = 30.0
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.0
-
-[sub_resource type="Gradient" id=5]
-offsets = PoolRealArray( 0, 0.520833, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [node name="PlayerBall" instance=ExtResource( 1 )]
 z_index = 1000
@@ -80,7 +77,6 @@ wait_time = 0.5
 one_shot = true
 
 [node name="ComboParticles" parent="." index="10" instance=ExtResource( 5 )]
-emitting = true
 amount = 32
 lifetime = 0.5
 local_coords = false
@@ -93,7 +89,7 @@ initial_velocity = 10.0
 scale_amount = 4.0
 scale_amount_random = 0.5
 color = Color( 0.913725, 0.192157, 0.286275, 1 )
-color_ramp = SubResource( 5 )
+color_ramp = ExtResource( 7 )
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]
 [connection signal="timeout" from="DashHoldTimer" to="." method="_on_DashHoldTimer_timeout"]

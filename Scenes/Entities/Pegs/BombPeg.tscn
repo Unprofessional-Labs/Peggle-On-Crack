@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Entities/Peg.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Entities/Pegs/BombPeg.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Display/ExplosiveParticles.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 resource_local_to_scene = true
@@ -20,6 +21,9 @@ radius = 96.3328
 
 [node name="BombPeg" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_vertical_guides_": [ -456.0 ]
+}
 HP = 2
 POINTS = 0
 FORCE = 500
@@ -45,6 +49,25 @@ modulate = Color( 0.933333, 0.529412, 0.133333, 1 )
 
 [node name="Sprite" parent="Sprite" index="0"]
 frame = 4
+
+[node name="ExplosiveParticles2" parent="." index="7" instance=ExtResource( 3 )]
+amount = 16
+initial_velocity = 150.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 36.0
+color = Color( 0.933333, 0.529412, 0.133333, 1 )
+hue_variation = 0.1
+hue_variation_random = 0.5
+
+[node name="ExplosiveParticles" parent="." index="8" instance=ExtResource( 3 )]
+amount = 16
+initial_velocity = 200.0
+angle = 720.0
+angle_random = 1.0
+color = Color( 0.933333, 0.529412, 0.133333, 1 )
+hue_variation = 0.1
+hue_variation_random = 0.5
 
 [connection signal="area_entered" from="ExplosionArea" to="." method="_on_ExplosionArea_area_entered"]
 [connection signal="area_exited" from="ExplosionArea" to="." method="_on_ExplosionArea_area_exited"]
