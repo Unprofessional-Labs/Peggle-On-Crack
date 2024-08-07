@@ -3,7 +3,6 @@ extends Node
 onready var ball:PlayerBall = Global.get_world_node("PlayerBall")
 
 var PRELOAD_NAME_BLACKLIST = [
-	"LevelStructure4-3",
 	"LevelStructure4-4"
 ]
 
@@ -25,7 +24,7 @@ var CHECKPOINT_LENGTH = {
 }
 
 var CHECKPOINT_COLOR = {
-	1: Color("#a3ffe3"),
+	1: Color("#b4ff8f"),
 	2: Color("#fbff87"),
 	3: Color("#8291ff"),
 	4: Color("#ff8787"),

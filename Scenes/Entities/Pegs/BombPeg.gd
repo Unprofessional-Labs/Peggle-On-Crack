@@ -14,9 +14,6 @@ func detonate_effect(pegBody) -> void:
 	pegBody.dmg(null)
 
 func endtrigger(body) -> void:
-	$ExplosiveParticles.emitting = true
-	$ExplosiveParticles2.emitting = true
-	
 	if body != null:
 		body.apply_central_impulse(global_position.direction_to(body.global_position) * FORCE)
 		

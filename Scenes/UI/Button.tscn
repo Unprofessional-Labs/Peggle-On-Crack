@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Visual/TextTheme.tres" type="Theme" id=1]
+
+[node name="Button" type="Button"]
+margin_right = 48.0
+margin_bottom = 32.0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 1 )
+text = "ads"

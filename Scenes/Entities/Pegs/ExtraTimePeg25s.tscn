@@ -16,7 +16,7 @@ radius = 8.0
 
 [node name="ExtraTimePeg25s" instance=ExtResource( 1 )]
 HP = 2
-extraTime = 25
+extraTime = 10
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
@@ -29,9 +29,6 @@ shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="ExplosionHitbox" index="0"]
 shape = SubResource( 3 )
-
-[node name="Sprite" parent="." index="4"]
-scale = Vector2( 1, 1 )
 
 [node name="Sprite" parent="Sprite" index="0"]
 frame = 18

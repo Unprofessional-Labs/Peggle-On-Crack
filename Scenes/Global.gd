@@ -4,13 +4,42 @@ signal reset()
 signal end_game()
 signal announce_checkpoint()
 
+var INGAME = false
+
 var PRELOADS = {
 	"ScorePopupText": preload("res://Scenes/Display/ScorePopupText.tscn"),
 	"PlayerBall": preload("res://Scenes/Entities/PlayerBall.tscn"),
 	"PlayerBallShadow": preload("res://Scenes/Display/PlayerBallShadow.tscn")
 }
 
+
 var GAME_VAR
+
+var SAVED_DATA = {
+	"best_score": 10000
+}
+
+var modifiers = []
+var modifier_values = []
+var modifier_max_level = []
+
+enum MODIFIER {
+	overdrive,
+	acceleration,
+	scarcity,
+	absorbency,
+	rush,
+	gravity,
+	damping,
+	ineffectiveness,
+	uncontrollability,
+	bleeding,
+	friction,
+	streak,
+	obscurity,
+	fatigue,
+	weakness
+}
 
 # these are array of pairs/triplets
 var multipliers = [] # 0 - multiplier; 1 - time left; 2 - sprite frame
@@ -41,9 +70,12 @@ func removePowerup(index: int) -> void:
 	emit_signal("triggerPowerup", powerupToBeRemoved, false)
 
 func get_multiplier():
-	var multiplier = 1
+	var multiplier = 0
 	for i in multipliers:
-		multiplier *= i[0]
+		multiplier += i[0]
+	
+	if multiplier == 0:
+		multiplier = 1
 	
 	if GAME_VAR.combo >= 25:
 		multiplier *= 2
@@ -70,11 +102,36 @@ func reset() -> void:
 
 var random = RandomNumberGenerator.new()
 
-func _ready() -> void:
-	random.randomize()
-	initialize()
+func initialize_variables():
+	var number_of_modifiers = MODIFIER.size()
+	modifiers.resize(number_of_modifiers)
+	modifiers.fill(0)
+	modifier_values.resize(number_of_modifiers)
+	modifier_values.fill(0)
+	modifier_max_level.resize(number_of_modifiers)
 	
+	var best_score = SAVED_DATA["best_score"]
+	var score_per_modifier = 400
+	modifier_max_level.fill(int( best_score / (score_per_modifier * number_of_modifiers) ))
+	
+	for i in range(modifier_max_level.size()):
+		if best_score % (score_per_modifier * number_of_modifiers) > (i+1)*score_per_modifier:
+			modifier_max_level[i] += 1
+
+func start_game():
+	# Update modifiers here lol
+	
+	INGAME = true
+	
+func end_game():
+	INGAME = false
+
+func _ready() -> void:
+	initialize_variables()
+	random.randomize()
 	connect("end_game", self, "end_game_func")
+	
+	initialize()
 
 func end_game_func():
 	GAME_VAR.game_over = true
@@ -119,6 +176,10 @@ var time_ticking_multiplier:float = 1
 var time_ticking_enabled:bool = true
 
 func _process(delta: float) -> void:
+	if INGAME:
+		process_ingame(delta)
+
+func process_ingame(delta: float) -> void:
 	if time_ticking_enabled:
 		if GAME_VAR.timer > 0:
 			GAME_VAR.timer -= delta * time_ticking_multiplier
