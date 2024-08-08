@@ -9,4 +9,7 @@ script = ExtResource( 1 )
 wait_time = 0.5
 one_shot = true
 
+[node name="DeadPointsTimer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="timeout" from="ComboTimer" to="." method="_on_ComboTimer_timeout"]

@@ -30,3 +30,6 @@ func _process(delta: float) -> void:
 		$Text3.bbcode_text = " [color=#03fcec]" + str(combo) + " combo![/color]"
 	else:
 		$Text3.bbcode_text = ""
+		
+	var comboTimer = Global.get_node("ComboTimer")
+	$Text3.modulate.a = clamp(comboTimer.time_left / comboTimer.wait_time * 2, 0, 1)

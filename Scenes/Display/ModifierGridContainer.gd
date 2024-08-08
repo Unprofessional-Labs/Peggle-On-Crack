@@ -7,7 +7,7 @@ func _ready() -> void:
 	for i in Global.MODIFIER:
 		var index = Global.MODIFIER[i]
 		var instance = panel_preload.instance()
-		instance.init(Global.modifier_max_level[index])
+		instance.init(index)
 		add_child(instance)
 
 #func _process(delta: float) -> void:

@@ -19,7 +19,7 @@ var SAVED_DATA = {
 	"best_score": 10000
 }
 
-var modifiers = []
+var modifiers = [] # levels
 var modifier_values = []
 var modifier_max_level = []
 
@@ -178,6 +178,9 @@ var time_ticking_enabled:bool = true
 func _process(delta: float) -> void:
 	if INGAME:
 		process_ingame(delta)
+	
+	if Input.is_action_pressed("ui_accept"):
+		get_tree().change_scene("res://MainTitle.tscn")
 
 func process_ingame(delta: float) -> void:
 	if time_ticking_enabled:
@@ -214,6 +217,7 @@ func process_ingame(delta: float) -> void:
 func add_combo():
 	GAME_VAR.combo += 1
 	$ComboTimer.start()
+	$DeadPointsTimer.start()
 
 func _on_ComboTimer_timeout() -> void:
 	GAME_VAR.combo = 0

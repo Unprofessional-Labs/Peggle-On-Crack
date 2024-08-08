@@ -38,6 +38,9 @@ func start_dash():
 			
 			$DashHoldTimer.start()
 
+func get_speed() -> float:
+	return linear_velocity.length()
+
 func dash() -> void:
 	if is_instance:
 		return
