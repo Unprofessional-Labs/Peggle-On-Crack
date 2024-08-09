@@ -7,7 +7,7 @@ var index = 0
 func init(index_param):
 	index = index_param
 	max_count = Global.modifier_max_level[index]
-	count = Global.modifiers[index]
+	count = Global.modifier_levels[index]
 
 func _ready() -> void:
 	update()
@@ -19,6 +19,6 @@ func _on_Button_pressed() -> void:
 	update()
 
 func update():
-	Global.modifiers[index] = count
+	Global.modifier_levels[index] = count
 	
 	$Button.text = str(count)

@@ -19,7 +19,7 @@ var SAVED_DATA = {
 	"best_score": 10000
 }
 
-var modifiers = [] # levels
+var modifier_levels = [] # levels
 var modifier_values = []
 var modifier_max_level = []
 
@@ -40,6 +40,40 @@ enum MODIFIER {
 	fatigue,
 	weakness
 }
+
+# pairs of [value per level, is additive]
+var modifier_value_per_level = [
+	[1.5, false],
+	[0.5, false],
+	[0.75, false],
+	[0.75, false],
+	[0,5, false],
+	[1.5, false],
+	[0,1, true],
+	[0.5, false],
+	[1.25, false],
+	[2, true],
+	[0.1, true],
+	[3, true],
+	[3, true],
+	[0.05, true],
+	[0.75, false]
+]
+
+func get_modifier_multiplier():
+	var sum = 1.0
+	for i in modifier_levels:
+		sum += i*0.1
+	return sum
+
+func update_modifier_values():
+	for i in range(modifier_levels.size()):
+		var modifier_level = modifier_levels[i]
+		var value
+		if modifier_value_per_level[i][1] == true:
+			value = modifier_value_per_level[i][0] * modifier_level
+		else:
+			value = pow(modifier_value_per_level[i][0], modifier_level)
 
 # these are array of pairs/triplets
 var multipliers = [] # 0 - multiplier; 1 - time left; 2 - sprite frame
@@ -104,8 +138,8 @@ var random = RandomNumberGenerator.new()
 
 func initialize_variables():
 	var number_of_modifiers = MODIFIER.size()
-	modifiers.resize(number_of_modifiers)
-	modifiers.fill(0)
+	modifier_levels.resize(number_of_modifiers)
+	modifier_levels.fill(0)
 	modifier_values.resize(number_of_modifiers)
 	modifier_values.fill(0)
 	modifier_max_level.resize(number_of_modifiers)
