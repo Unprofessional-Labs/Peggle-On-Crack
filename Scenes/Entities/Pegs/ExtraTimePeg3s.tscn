@@ -14,7 +14,7 @@ radius = 8.0
 resource_local_to_scene = true
 radius = 8.0
 
-[node name="ExtraTimePeg5s" instance=ExtResource( 1 )]
+[node name="ExtraTimePeg3s" instance=ExtResource( 1 )]
 extraTime = 3
 
 [node name="CollisionShape2D" parent="." index="0"]

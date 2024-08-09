@@ -1,6 +1,7 @@
 extends Node
 
 signal reset()
+signal start_game()
 signal end_game()
 signal announce_checkpoint()
 
@@ -16,7 +17,7 @@ var PRELOADS = {
 var GAME_VAR
 
 var SAVED_DATA = {
-	"best_score": 10000
+	"best_score": 10000000
 }
 
 var modifier_levels = [] # levels
@@ -47,9 +48,9 @@ var modifier_value_per_level = [
 	[0.5, false],
 	[0.75, false],
 	[0.75, false],
-	[0,5, false],
+	[0.5, false],
 	[1.5, false],
-	[0,1, true],
+	[0.1, true],
 	[0.5, false],
 	[1.25, false],
 	[2, true],
@@ -74,6 +75,8 @@ func update_modifier_values():
 			value = modifier_value_per_level[i][0] * modifier_level
 		else:
 			value = pow(modifier_value_per_level[i][0], modifier_level)
+		
+		modifier_values[i] = value
 
 # these are array of pairs/triplets
 var multipliers = [] # 0 - multiplier; 1 - time left; 2 - sprite frame
@@ -151,10 +154,13 @@ func initialize_variables():
 	for i in range(modifier_max_level.size()):
 		if best_score % (score_per_modifier * number_of_modifiers) > (i+1)*score_per_modifier:
 			modifier_max_level[i] += 1
+	
+	update_modifier_values()
 
 func start_game():
 	# Update modifiers here lol
 	
+	emit_signal("start_game")
 	INGAME = true
 	
 func end_game():
@@ -204,27 +210,24 @@ func randint_range(from, to) -> int:
 
 var time_scales = {
 	"player": 1.0,
+	"overdrive_modifier": 1.0
 }
 
-var time_ticking_multiplier:float = 1
+var time_ticking_scales = {
+	"slow_time_powerup": 1.0,
+}
+
+var time_peg_effectiveness_multiplier:float = 1
+
 var time_ticking_enabled:bool = true
 
 func _process(delta: float) -> void:
 	if INGAME:
 		process_ingame(delta)
-	
-	if Input.is_action_pressed("ui_accept"):
-		get_tree().change_scene("res://MainTitle.tscn")
+	else:
+		Engine.time_scale = 1
 
 func process_ingame(delta: float) -> void:
-	if time_ticking_enabled:
-		if GAME_VAR.timer > 0:
-			GAME_VAR.timer -= delta * time_ticking_multiplier
-			GAME_VAR.timer = max(0, GAME_VAR.timer)
-			GAME_VAR.time_is_up = false
-		else:
-			GAME_VAR.time_is_up = true
-	
 	# MULTIPLIER EXECUTE
 	var i = 0
 	while i < multipliers.size():
@@ -247,6 +250,18 @@ func process_ingame(delta: float) -> void:
 	for j in time_scales:
 		productTimeScale *= time_scales[j]
 	Engine.time_scale = productTimeScale
+	
+	var productTimeTickingScale:float = 1
+	for j in time_ticking_scales:
+		productTimeTickingScale *= time_ticking_scales[j]
+	
+	if time_ticking_enabled:
+		if GAME_VAR.timer > 0:
+			GAME_VAR.timer -= delta * productTimeTickingScale
+			GAME_VAR.timer = max(0, GAME_VAR.timer)
+			GAME_VAR.time_is_up = false
+		else:
+			GAME_VAR.time_is_up = true
 
 func add_combo():
 	GAME_VAR.combo += 1
@@ -255,3 +270,6 @@ func add_combo():
 
 func _on_ComboTimer_timeout() -> void:
 	GAME_VAR.combo = 0
+
+func first_node_in_group(groupname):
+	return get_tree().get_nodes_in_group(groupname)[0]

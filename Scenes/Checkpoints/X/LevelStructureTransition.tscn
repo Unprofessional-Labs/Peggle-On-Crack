@@ -17,7 +17,7 @@ extents = Vector2( 448, 24 )
 margin_bottom = 1408.0
 
 [node name="Platform" parent="." index="1" instance=ExtResource( 2 )]
-position = Vector2( -376, 680 )
+position = Vector2( -352, 680 )
 rotation = -0.261799
 
 [node name="NinePatchRect" parent="Platform" index="0"]
@@ -31,7 +31,7 @@ position = Vector2( -175.656, 0.0794067 )
 shape = SubResource( 1 )
 
 [node name="Platform2" parent="." index="2" instance=ExtResource( 2 )]
-position = Vector2( 376, 680 )
+position = Vector2( 352, 680 )
 rotation = -2.87979
 
 [node name="NinePatchRect" parent="Platform2" index="0"]

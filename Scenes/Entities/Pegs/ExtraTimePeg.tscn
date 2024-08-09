@@ -31,7 +31,6 @@ shape = SubResource( 3 )
 
 [node name="Sprite" parent="." index="4"]
 modulate = Color( 0.984314, 0.94902, 0.211765, 1 )
-scale = Vector2( 1, 1 )
 
 [node name="Sprite" parent="Sprite" index="0"]
 frame = 2

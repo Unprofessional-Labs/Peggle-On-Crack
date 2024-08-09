@@ -22,16 +22,16 @@ func toggle_powerup(powerup: int, enable: bool) -> void:
 	match powerup:
 		Global.POWERUP.super_bounce:
 			if enable:
-				ball.bounce = 1
+				ball.bounce_scales["bounce_powerup"] = 1
 			else:
-				ball.bounce = 0.9
+				ball.bounce_scales["bounce_powerup"] = 0.9
 		
 		Global.POWERUP.slow_time:
 			if !ball.is_instance:
 				if enable:
-					Global.time_ticking_multiplier *= 0.25
+					Global.time_ticking_scales["slow_time_powerup"] *= 0.25
 				else:
-					Global.time_ticking_multiplier /= 0.25
+					Global.time_ticking_scales["slow_time_powerup"] /= 0.25
 			
 		Global.POWERUP.bamboozle:
 			if enable:

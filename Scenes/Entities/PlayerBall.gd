@@ -8,8 +8,17 @@ var gravity_scale_multiplier:int = 1
 var enable_dash_stalling:bool = false
 var is_instance:bool = false
 
+# modifier/powerup vars
+var bounce_scales = {
+	"bounce_powerup": 0.9,
+	"absorbency_modifier": 1.0
+}
+
+var time_to_adjust_dash_multiplier = 1
+
 func _ready() -> void:
-	pass
+	if is_instance:
+		bounce_scales = Global.first_node_in_group("player").bounce_scales
 
 func init(pos) -> void:
 	global_position = pos
@@ -22,14 +31,16 @@ func start_dash():
 		return
 		
 	charging_dash = true
-	Global.time_scales.player = 0.05
+	Global.time_scales["player"] = 0.05
+	
+	var adjust_dash_time:float = 2*0.05*time_to_adjust_dash_multiplier
 	
 	$Tween.remove($TrajectoryLine, "line_extent")
-	$Tween.interpolate_property($TrajectoryLine, "line_extent", $TrajectoryLine.line_extent, 1, 0.075, Tween.TRANS_SINE)
+	$Tween.interpolate_property($TrajectoryLine, "line_extent", $TrajectoryLine.line_extent, 1, adjust_dash_time/1.5, Tween.TRANS_SINE)
 	$Tween.start()
 	
 	if !enable_dash_stalling:
-		yield(get_tree().create_timer(2*0.05), "timeout")
+		yield(get_tree().create_timer(adjust_dash_time), "timeout")
 		
 		if charging_dash:
 			$Tween.remove($TrajectoryLine, "line_extent")
@@ -116,6 +127,11 @@ func _physics_process(delta: float) -> void:
 	$ComboParticles.emitting = Global.GAME_VAR.combo >= 25
 	
 	anti_softlock()
+	
+	var productBounceScale:float = 1
+	for j in bounce_scales:
+		productBounceScale *= bounce_scales[j]
+	bounce = productBounceScale
 	
 	if Global.GAME_VAR.time_is_up:
 		end(true)

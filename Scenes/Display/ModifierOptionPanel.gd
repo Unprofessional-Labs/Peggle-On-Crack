@@ -20,5 +20,6 @@ func _on_Button_pressed() -> void:
 
 func update():
 	Global.modifier_levels[index] = count
-	
-	$Button.text = str(count)
+	Global.update_modifier_values()
+
+	$Button.text = str(Global.modifier_values[index])
