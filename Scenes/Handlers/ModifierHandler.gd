@@ -25,9 +25,6 @@ func update_modifier_effects():
 				Global.first_node_in_group("player").time_to_adjust_dash_multiplier = value
 				Global.first_node_in_group("player").get_node("DashHoldTimer").wait_time = 0.05 * value
 				
-			Global.MODIFIER.gravity:
-				pass
-				
 			Global.MODIFIER.damping:
 				Global.first_node_in_group("player").damping_addends["damping_modifier"] = value
 				
@@ -39,9 +36,6 @@ func update_modifier_effects():
 				
 			Global.MODIFIER.bleeding:
 				Global.bleeding_score_amount = value
-				
-			Global.MODIFIER.friction:
-				pass
 				
 			Global.MODIFIER.streak:
 				pass
