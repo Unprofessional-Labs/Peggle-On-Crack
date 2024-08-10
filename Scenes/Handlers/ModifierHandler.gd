@@ -38,16 +38,10 @@ func update_modifier_effects():
 				Global.bleeding_score_amount = value
 				
 			Global.MODIFIER.streak:
-				pass
+				Global.minimum_combo_to_register_points = value
 				
 			Global.MODIFIER.obscurity:
-				pass
-				
-			Global.MODIFIER.fatigue:
-				pass
-				
-			Global.MODIFIER.weakness:
-				pass
+				Global.structure_invisible_interval = value
 
 func _process(delta: float) -> void:
 	pass

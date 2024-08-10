@@ -36,8 +36,6 @@ enum MODIFIER {
 	bleeding,
 	streak,
 	obscurity,
-	fatigue,
-	weakness
 }
 
 # pairs of [value per level, is additive]
@@ -51,10 +49,8 @@ var modifier_value_per_level = [
 	[0.5, false],
 	[1.25, false],
 	[2, true],
+	[6, true],
 	[3, true],
-	[3, true],
-	[0.05, true],
-	[0.75, false]
 ]
 
 func get_modifier_multiplier():
@@ -154,18 +150,33 @@ func initialize_variables():
 	
 	update_modifier_values()
 
+onready var structures
 func start_game():
 	# Update modifiers here lol
 	
 	emit_signal("start_game")
 	INGAME = true
 	
+	yield(get_tree(), "idle_frame")
+	
+	structures = first_node_in_group("structures")
 	$BleedingTimer.start()
+	if structure_invisible_interval > 0:
+		structures.modulate.a = 0
+		$StructuresInvisibleTimer.start()
+		$StructuresInvisibleTimer.wait_time = structure_invisible_interval
+	else:
+		structures.modulate.a = 1
 	
 func end_game_func():
 	GAME_VAR.game_over = true
 	INGAME = false
 	$BleedingTimer.stop()
+	$StructuresInvisibleTimer.stop()
+	
+	if structure_invisible_interval > 0:
+		$Tween.interpolate_property(structures, "modulate:a", 0, 1, 3, Tween.TRANS_LINEAR)
+		$Tween.start()
 
 func _ready() -> void:
 	initialize_variables()
@@ -262,6 +273,7 @@ func process_ingame(delta: float) -> void:
 		else:
 			GAME_VAR.time_is_up = true
 
+var minimum_combo_to_register_points = 0
 func add_combo():
 	GAME_VAR.combo += 1
 	$ComboTimer.start()
@@ -273,7 +285,13 @@ func _on_ComboTimer_timeout() -> void:
 func first_node_in_group(groupname):
 	return get_tree().get_nodes_in_group(groupname)[0]
 
+# modifier global functions
 var bleeding_score_amount = 0
 func _on_BleedingTimer_timeout() -> void:
 	if time_ticking_enabled:
 		GAME_VAR["score"] -= bleeding_score_amount
+
+var structure_invisible_interval = 0
+func _on_StructuresInvisibleTimer_timeout() -> void:
+	$Tween.interpolate_property(structures, "modulate:a", 1, 0, 1, Tween.TRANS_LINEAR)
+	$Tween.start()

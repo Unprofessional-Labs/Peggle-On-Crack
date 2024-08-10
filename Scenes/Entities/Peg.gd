@@ -29,9 +29,11 @@ func dmg(body) -> void:
 	HP -= 1
 	
 	if HP <= 0:
-		Global.GAME_VAR.score += FINAL_POINTS
+		if Global.GAME_VAR["combo"] >= Global.minimum_combo_to_register_points:
+			Global.GAME_VAR.score += FINAL_POINTS
+			addlabel()
+		
 		Global.add_combo()
-		addlabel()
 		endtrigger(body)
 		remove()
 		
