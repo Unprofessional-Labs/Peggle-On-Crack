@@ -38,6 +38,22 @@ func update_modifier_effects():
 				Global.first_node_in_group("player").dash_cooldown_scales["uncontrollability_modifier"] = value
 				
 			Global.MODIFIER.bleeding:
+				Global.bleeding_score_amount = value
+				
+			Global.MODIFIER.friction:
+				pass
+				
+			Global.MODIFIER.streak:
+				pass
+				
+			Global.MODIFIER.obscurity:
+				pass
+				
+			Global.MODIFIER.fatigue:
+				pass
+				
+			Global.MODIFIER.weakness:
+				pass
 
 func _process(delta: float) -> void:
 	pass

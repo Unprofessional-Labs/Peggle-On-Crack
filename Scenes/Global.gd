@@ -50,7 +50,7 @@ var modifier_value_per_level = [
 	[0.75, false],
 	[0.5, false],
 	[0.75, false],
-	[0.5, true],
+	[1, true],
 	[0.5, false],
 	[1.25, false],
 	[2, true],
@@ -164,8 +164,12 @@ func start_game():
 	emit_signal("start_game")
 	INGAME = true
 	
-func end_game():
+	$BleedingTimer.start()
+	
+func end_game_func():
+	GAME_VAR.game_over = true
 	INGAME = false
+	$BleedingTimer.stop()
 
 func _ready() -> void:
 	initialize_variables()
@@ -173,9 +177,6 @@ func _ready() -> void:
 	connect("end_game", self, "end_game_func")
 	
 	initialize()
-
-func end_game_func():
-	GAME_VAR.game_over = true
 	
 func get_world_node(node_name):
 	return get_tree().get_root().get_node("World/" + node_name)
@@ -275,3 +276,8 @@ func _on_ComboTimer_timeout() -> void:
 
 func first_node_in_group(groupname):
 	return get_tree().get_nodes_in_group(groupname)[0]
+
+var bleeding_score_amount = 0
+func _on_BleedingTimer_timeout() -> void:
+	if time_ticking_enabled:
+		GAME_VAR["score"] -= bleeding_score_amount
