@@ -34,12 +34,7 @@ func toggle_powerup(powerup: int, enable: bool) -> void:
 					Global.time_ticking_scales["slow_time_powerup"] /= 0.25
 			
 		Global.POWERUP.bamboozle:
-			if enable:
-				ball.gravity_scale_multiplier = -1
-				ball.DASH_FORCE = -500
-			else:
-				ball.gravity_scale_multiplier = 1
-				ball.DASH_FORCE = 500
+			pass
 		
 		Global.POWERUP.pierce:
 			is_piercing_powerup = enable

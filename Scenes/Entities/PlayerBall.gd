@@ -3,15 +3,34 @@ class_name PlayerBall
 
 var DASH_FORCE:int = 500
 var ended:bool = false
-var gravity_scale_multiplier:int = 1
 
 var enable_dash_stalling:bool = false
 var is_instance:bool = false
 
 # modifier/powerup vars
+var productBounceScale
 var bounce_scales = {
-	"bounce_powerup": 0.9,
+	"bounce_powerup": 0.9, # base
 	"absorbency_modifier": 1.0
+}
+
+var productGravityScale
+var gravity_scales = {
+	"base": 10,
+	"ending": 1.0,
+}
+
+var sumDampingAddends
+var damping_addends = {
+	"base": 0,
+	"ending": 0,
+	"damping_modifier": 0
+}
+
+var productDashCooldown
+var dash_cooldown_scales = {
+	"base": 3,
+	"uncontrollability_modifier": 1
 }
 
 var time_to_adjust_dash_multiplier = 1
@@ -100,18 +119,19 @@ func end(enable:bool) -> void:
 		if charging_dash:
 			dash()
 			
-		gravity_scale = 0
-		linear_damp = 1
+		gravity_scales["ending"] = 0
+		damping_addends["ending"] = 1
 		if abs(linear_velocity.x) < 5 && abs(linear_velocity.y) < 5:
 			linear_velocity = Vector2.ZERO
 			
-			if !ended && !is_instance && Global.get_node("DeadPointsTimer").is_stopped():
-				Global.emit_signal("end_game")
+			if !is_instance:
+				if !ended && Global.get_node("DeadPointsTimer").is_stopped():
+					Global.emit_signal("end_game")
+					ended = true
 			
-			ended = true
 	else:
-		gravity_scale = 10 * gravity_scale_multiplier
-		linear_damp = 0
+		gravity_scales["ending"] = 1
+		damping_addends["ending"] = 0
 			
 
 func anti_softlock() -> void:
@@ -128,10 +148,25 @@ func _physics_process(delta: float) -> void:
 	
 	anti_softlock()
 	
-	var productBounceScale:float = 1
+	productBounceScale = 1
 	for j in bounce_scales:
 		productBounceScale *= bounce_scales[j]
 	bounce = productBounceScale
+	
+	productGravityScale = 1
+	for j in gravity_scales:
+		productGravityScale *= gravity_scales[j]
+	gravity_scale = productGravityScale
+	
+	sumDampingAddends = 0
+	for j in damping_addends:
+		sumDampingAddends += damping_addends[j]
+	linear_damp = sumDampingAddends
+	
+	productDashCooldown = 1
+	for j in dash_cooldown_scales:
+		productDashCooldown *= dash_cooldown_scales[j]
+	$DashTimer.wait_time = productDashCooldown
 	
 	if Global.GAME_VAR.time_is_up:
 		end(true)

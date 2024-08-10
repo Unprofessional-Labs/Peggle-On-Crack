@@ -44,13 +44,13 @@ enum MODIFIER {
 
 # pairs of [value per level, is additive]
 var modifier_value_per_level = [
-	[1.5, false],
+	[0.25, true],
 	[0.5, false],
 	[0.75, false],
 	[0.75, false],
 	[0.5, false],
-	[1.5, false],
-	[0.1, true],
+	[0.75, false],
+	[0.5, true],
 	[0.5, false],
 	[1.25, false],
 	[2, true],
@@ -119,10 +119,11 @@ func get_multiplier():
 	
 	return multiplier
 
+var starting_time = 30
 func initialize() -> void:
 	GAME_VAR = {
 		"score": 0,
-		"timer": 90,
+		"timer": starting_time,
 		"combo": 0,
 		"can_dash": true,
 		"dash_cooldown_remaining_decimal": 0,
@@ -218,6 +219,7 @@ var time_ticking_scales = {
 }
 
 var time_peg_effectiveness_multiplier:float = 1
+var powerup_peg_duration_multiplier:float = 1
 
 var time_ticking_enabled:bool = true
 

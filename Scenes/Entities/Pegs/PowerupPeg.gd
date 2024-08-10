@@ -10,4 +10,4 @@ func trigger(body) -> void:
 	pass
 	
 func endtrigger(body) -> void:
-	Global.addPowerup(powerup, time, $Sprite/Sprite.frame)
+	Global.addPowerup(powerup, time * Global.powerup_peg_duration_multiplier, $Sprite/Sprite.frame)
