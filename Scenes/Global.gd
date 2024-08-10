@@ -34,7 +34,6 @@ enum MODIFIER {
 	ineffectiveness,
 	uncontrollability,
 	bleeding,
-	friction,
 	streak,
 	obscurity,
 	fatigue,
