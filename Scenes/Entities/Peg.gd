@@ -6,6 +6,8 @@ onready var INIT_HP = HP
 export var POINTS: int = 1
 export var BobbingCycleEnabled:bool = false
 
+var FINAL_POINTS
+
 onready var Player: PlayerBall = get_tree().get_root().get_node("")
 
 onready var initial_sprite_modulate = $Sprite.modulate
@@ -25,13 +27,12 @@ func dmg(body) -> void:
 	# if body.
 	
 	$AnimationPlayer.play("Hit")
-	var FINAL_POINTS = POINTS * Global.get_multiplier()
+	FINAL_POINTS = POINTS * Global.get_multiplier() if Global.GAME_VAR["combo"] >= Global.minimum_combo_to_register_points else 0
 	HP -= 1
 	
 	if HP <= 0:
-		if Global.GAME_VAR["combo"] >= Global.minimum_combo_to_register_points:
-			Global.GAME_VAR.score += FINAL_POINTS
-			addlabel()
+		Global.GAME_VAR.score += FINAL_POINTS
+		addlabel()
 		
 		Global.add_combo()
 		endtrigger(body)
@@ -53,8 +54,8 @@ func restore() -> void:
 	HP = INIT_HP
 
 func addlabel() -> void:
-	var FINAL_POINTS:int = POINTS * Global.get_multiplier()
-	Global.add_score_label(global_position, str(FINAL_POINTS))
+	if FINAL_POINTS != 0:
+		Global.add_score_label(global_position, str(FINAL_POINTS))
 
 func trigger(body) -> void:
 	pass

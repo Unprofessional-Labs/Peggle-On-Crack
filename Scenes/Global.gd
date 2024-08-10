@@ -111,7 +111,7 @@ func get_multiplier():
 	
 	return multiplier
 
-var starting_time = 30
+var starting_time = 90
 func initialize() -> void:
 	GAME_VAR = {
 		"score": 0,
@@ -293,5 +293,5 @@ func _on_BleedingTimer_timeout() -> void:
 
 var structure_invisible_interval = 0
 func _on_StructuresInvisibleTimer_timeout() -> void:
-	$Tween.interpolate_property(structures, "modulate:a", 1, 0, 1, Tween.TRANS_LINEAR)
+	$Tween.interpolate_property(structures, "modulate:a", 1, 0, 1.5, Tween.TRANS_LINEAR)
 	$Tween.start()
