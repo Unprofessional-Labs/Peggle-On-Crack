@@ -110,7 +110,7 @@ func get_multiplier():
 	
 	return multiplier
 
-var starting_time = 10
+var starting_time = 90
 func initialize() -> void:
 	GAME_VAR = {
 		"score": 0,
