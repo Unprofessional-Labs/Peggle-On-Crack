@@ -193,7 +193,6 @@ func save_data():
 		dir.make_dir("PeggleOnCrack")
 	
 	ResourceSaver.save("user://PeggleOnCrack/game_save.tres", save_resource)
-	print(save_resource.best_score)
 
 func load_data():
 	var data = load("user://PeggleOnCrack/game_save.tres") as GameSaveResource
