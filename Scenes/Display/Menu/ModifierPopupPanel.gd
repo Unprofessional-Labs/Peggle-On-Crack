@@ -2,7 +2,7 @@ extends ColorRect
 
 # array of triplets
 var modifier_details = [
-	["Overdrive", "The game runs at ??? speed", "x"],
+	["Overdrive", "The game is ??? faster", "x"],
 	["Acceleration", "The starting timer is ??? as long", "x"],
 	["Scarcity", "Time pegs give ??? as much", "x"],
 	["Absorbency", "The ball is ??? as bouncy", "x"],

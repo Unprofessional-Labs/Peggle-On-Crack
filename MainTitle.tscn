@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Display/Text.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Display/Camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Art/pegs.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/UI/Button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://MainTitle.gd" type="Script" id=5]
-[ext_resource path="res://Assets/Art/checkpoints.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Display/Menu/ModifierUI.tscn" type="PackedScene" id=7]
 
 [node name="MainTitle" type="Node2D"]
@@ -19,12 +18,6 @@ texture = ExtResource( 3 )
 hframes = 8
 vframes = 8
 frame = 7
-
-[node name="CheckpointSprite" type="Sprite" parent="."]
-position = Vector2( 200, -56 )
-texture = ExtResource( 6 )
-hframes = 8
-vframes = 8
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -45,5 +38,14 @@ bbcode_text = "[center]PEGGLE ON CRACK"
 text = "PEGGLE ON CRACK"
 
 [node name="ModifierUI" parent="." instance=ExtResource( 7 )]
+
+[node name="BestScoreText" parent="." instance=ExtResource( 1 )]
+margin_left = -224.0
+margin_top = -80.0
+margin_right = 0.0
+margin_bottom = -64.0
+rect_scale = Vector2( 2, 2 )
+bbcode_text = "[right]Best: 1942"
+text = "Best: 1942"
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

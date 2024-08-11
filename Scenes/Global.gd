@@ -13,11 +13,10 @@ var PRELOADS = {
 	"PlayerBallShadow": preload("res://Scenes/Display/Ingame/PlayerBallShadow.tscn")
 }
 
-
 var GAME_VAR
 
 var SAVED_DATA = {
-	"best_score": 1000
+	"best_score": 0
 }
 
 var modifier_levels = [] # levels
@@ -111,7 +110,7 @@ func get_multiplier():
 	
 	return multiplier
 
-var starting_time = 90
+var starting_time = 10
 func initialize() -> void:
 	GAME_VAR = {
 		"score": 0,
@@ -132,6 +131,7 @@ func reset() -> void:
 
 var random = RandomNumberGenerator.new()
 
+var score_per_modifier = 500
 func initialize_variables():
 	var number_of_modifiers = MODIFIER.size()
 	modifier_levels.resize(number_of_modifiers)
@@ -141,7 +141,6 @@ func initialize_variables():
 	modifier_max_level.resize(number_of_modifiers)
 	
 	var best_score = SAVED_DATA["best_score"]
-	var score_per_modifier = 500
 	modifier_max_level.fill(int( best_score / (score_per_modifier * number_of_modifiers) ))
 	
 	for i in range(modifier_max_level.size()):
@@ -173,10 +172,35 @@ func end_game_func():
 	INGAME = false
 	$BleedingTimer.stop()
 	$StructuresInvisibleTimer.stop()
+	GAME_VAR.score *= get_modifier_multiplier()
+	GAME_VAR.score = round(GAME_VAR.score)
 	
 	if structure_invisible_interval > 0:
 		$Tween.interpolate_property(structures, "modulate:a", 0, 1, 3, Tween.TRANS_LINEAR)
 		$Tween.start()
+	
+	save_data()
+
+func save_data():
+	var save_resource = GameSaveResource.new()
+	SAVED_DATA.best_score = max(GAME_VAR.score, SAVED_DATA.best_score)
+	save_resource.best_score = SAVED_DATA.best_score
+	
+	# path verification
+	var dir = Directory.new()
+	dir.open("user://")
+	if !dir.dir_exists("PeggleOnCrack"):
+		dir.make_dir("PeggleOnCrack")
+	
+	ResourceSaver.save("user://PeggleOnCrack/game_save.tres", save_resource)
+	print(save_resource.best_score)
+
+func load_data():
+	var data = load("user://PeggleOnCrack/game_save.tres") as GameSaveResource
+	if data != null:
+		SAVED_DATA.best_score = data.best_score
+	else:
+		save_data()
 
 func _ready() -> void:
 	initialize_variables()
@@ -184,6 +208,8 @@ func _ready() -> void:
 	connect("end_game", self, "end_game_func")
 	
 	initialize()
+	
+	load_data()
 	
 func get_world_node(node_name):
 	return get_tree().get_root().get_node("World/" + node_name)
