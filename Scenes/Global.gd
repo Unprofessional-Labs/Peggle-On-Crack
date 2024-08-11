@@ -48,7 +48,7 @@ var modifier_value_per_level = [
 	[0.5, false],
 	[1.25, false],
 	[3, true],
-	[6, true],
+	[5, true],
 	[3, true],
 ]
 
