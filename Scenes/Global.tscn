@@ -23,6 +23,10 @@ wait_time = 3.0
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="timeout" from="ComboTimer" to="." method="_on_ComboTimer_timeout"]
 [connection signal="timeout" from="BleedingTimer" to="." method="_on_BleedingTimer_timeout"]
 [connection signal="timeout" from="StructuresInvisibleTimer" to="." method="_on_StructuresInvisibleTimer_timeout"]

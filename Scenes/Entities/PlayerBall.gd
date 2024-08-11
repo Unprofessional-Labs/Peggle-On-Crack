@@ -36,6 +36,7 @@ var dash_cooldown_scales = {
 var time_to_adjust_dash_multiplier = 1
 
 func _ready() -> void:
+	Global.get_node("DashTimer").connect("timeout", self, "_on_DashTimer_timeout")
 	if is_instance:
 		bounce_scales = Global.first_node_in_group("player").bounce_scales
 
@@ -46,9 +47,6 @@ func init(pos) -> void:
 var charging_dash: bool = false
 
 func start_dash():
-	if is_instance:
-		return
-		
 	charging_dash = true
 	Global.time_scales["player"] = 0.05
 	
@@ -72,9 +70,6 @@ func get_speed() -> float:
 	return linear_velocity.length()
 
 func dash() -> void:
-	if is_instance:
-		return
-		
 	$DashHoldTimer.stop()
 	
 	charging_dash = false
@@ -86,7 +81,7 @@ func dash() -> void:
 	linear_velocity = Vector2.ZERO
 	apply_central_impulse(global_position.direction_to(get_global_mouse_position()) * -DASH_FORCE)
 	
-	$DashTimer.start()
+	Global.get_node("DashTimer").start()
 	Global.GAME_VAR.can_dash = false
 	
 	$DashTrailTimer.start()
@@ -100,18 +95,15 @@ func activate_trail():
 		yield(get_tree().create_timer(0.05), "timeout")
 
 func dash_update_process() -> void:
-	if is_instance:
-		return
-		
-	Global.GAME_VAR.dash_cooldown_remaining_decimal = $DashTimer.time_left / $DashTimer.wait_time
+	Global.GAME_VAR.dash_cooldown_remaining_decimal = Global.get_node("DashTimer").time_left / Global.get_node("DashTimer").wait_time
 	
-	if Input.is_action_pressed("launch") && $DashTimer.is_stopped() && !charging_dash:
+	if Input.is_action_pressed("launch") && Global.get_node("DashTimer").is_stopped() && !charging_dash:
 		start_dash()
 
 	if Input.is_action_just_released("launch") && charging_dash:
 		dash()
 	
-	if $DashTimer.is_stopped():
+	if Global.get_node("DashTimer").is_stopped():
 		$TrajectoryLine.rotation = -rotation + global_position.angle_to_point(get_global_mouse_position())
 
 func end(enable:bool) -> void:
@@ -166,7 +158,7 @@ func _physics_process(delta: float) -> void:
 	productDashCooldown = 1
 	for j in dash_cooldown_scales:
 		productDashCooldown *= dash_cooldown_scales[j]
-	$DashTimer.wait_time = productDashCooldown
+	Global.get_node("DashTimer").wait_time = productDashCooldown
 	
 	if Global.GAME_VAR.time_is_up:
 		end(true)

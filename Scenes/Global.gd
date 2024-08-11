@@ -144,7 +144,7 @@ func initialize_variables():
 	modifier_max_level.fill(int( best_score / (score_per_modifier * number_of_modifiers) ))
 	
 	for i in range(modifier_max_level.size()):
-		if best_score % (score_per_modifier * number_of_modifiers) >= (i+1)*score_per_modifier:
+		if int(best_score) % (score_per_modifier * number_of_modifiers) >= (i+1)*score_per_modifier:
 			modifier_max_level[i] += 1
 	
 	update_modifier_values()
@@ -203,13 +203,12 @@ func load_data():
 		save_data()
 
 func _ready() -> void:
-	initialize_variables()
 	random.randomize()
 	connect("end_game", self, "end_game_func")
 	
 	initialize()
-	
 	load_data()
+	initialize_variables()
 	
 func get_world_node(node_name):
 	return get_tree().get_root().get_node("World/" + node_name)
