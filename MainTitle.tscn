@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Display/Text.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Display/Camera.tscn" type="PackedScene" id=2]
@@ -6,8 +6,7 @@
 [ext_resource path="res://Scenes/UI/Button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://MainTitle.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Art/checkpoints.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/Display/ModifierGridContainer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Display/ModifierMultiplierText.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Display/Menu/ModifierUI.tscn" type="PackedScene" id=7]
 
 [node name="MainTitle" type="Node2D"]
 script = ExtResource( 5 )
@@ -36,7 +35,7 @@ margin_right = 64.0
 margin_bottom = 48.0
 text = "Start game"
 
-[node name="Text" parent="." instance=ExtResource( 1 )]
+[node name="TitleText" parent="." instance=ExtResource( 1 )]
 margin_left = -360.0
 margin_top = -144.0
 margin_right = -216.0
@@ -45,15 +44,6 @@ rect_scale = Vector2( 5, 5 )
 bbcode_text = "[center]PEGGLE ON CRACK"
 text = "PEGGLE ON CRACK"
 
-[node name="ModifierMultiplierText" parent="." instance=ExtResource( 1 )]
-margin_left = -240.0
-margin_top = 96.0
-margin_right = -64.0
-margin_bottom = 112.0
-bbcode_text = "Modifier bonus: +0x"
-text = "Modifier bonus: +0x"
-script = ExtResource( 8 )
-
-[node name="ModifierGridContainer" parent="." instance=ExtResource( 7 )]
+[node name="ModifierUI" parent="." instance=ExtResource( 7 )]
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

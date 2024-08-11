@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Art/pegs.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Art/blank-texture.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Display/DashDisplay.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Display/Ingame/DashDisplay.gd" type="Script" id=3]
 
 [node name="DashDisplay" type="Node2D"]
 script = ExtResource( 3 )

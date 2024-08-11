@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Entities/PlayerBall.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Art/line-texture.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Entities/TrajectoryLine.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Display/Particles.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Display/Ingame/Particles.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Handlers/PowerupHandler.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/Visual/FadingParticleGradient.tres" type="Gradient" id=7]
 

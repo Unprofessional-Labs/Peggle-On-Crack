@@ -8,16 +8,16 @@ signal announce_checkpoint()
 var INGAME = false
 
 var PRELOADS = {
-	"ScorePopupText": preload("res://Scenes/Display/ScorePopupText.tscn"),
+	"ScorePopupText": preload("res://Scenes/Display/Ingame/ScorePopupText.tscn"),
 	"PlayerBall": preload("res://Scenes/Entities/PlayerBall.tscn"),
-	"PlayerBallShadow": preload("res://Scenes/Display/PlayerBallShadow.tscn")
+	"PlayerBallShadow": preload("res://Scenes/Display/Ingame/PlayerBallShadow.tscn")
 }
 
 
 var GAME_VAR
 
 var SAVED_DATA = {
-	"best_score": 10000000
+	"best_score": 1000
 }
 
 var modifier_levels = [] # levels
@@ -48,7 +48,7 @@ var modifier_value_per_level = [
 	[1, true],
 	[0.5, false],
 	[1.25, false],
-	[2, true],
+	[3, true],
 	[6, true],
 	[3, true],
 ]
@@ -141,11 +141,11 @@ func initialize_variables():
 	modifier_max_level.resize(number_of_modifiers)
 	
 	var best_score = SAVED_DATA["best_score"]
-	var score_per_modifier = 400
+	var score_per_modifier = 500
 	modifier_max_level.fill(int( best_score / (score_per_modifier * number_of_modifiers) ))
 	
 	for i in range(modifier_max_level.size()):
-		if best_score % (score_per_modifier * number_of_modifiers) > (i+1)*score_per_modifier:
+		if best_score % (score_per_modifier * number_of_modifiers) >= (i+1)*score_per_modifier:
 			modifier_max_level[i] += 1
 	
 	update_modifier_values()

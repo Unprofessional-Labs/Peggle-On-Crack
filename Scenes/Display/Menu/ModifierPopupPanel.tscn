@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Visual/TextTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Art/modifiers.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Display/Text.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Display/Menu/ModifierPopupPanel.gd" type="Script" id=4]
+
+[node name="ModifierPopupPanel" type="ColorRect"]
+margin_right = 232.0
+margin_bottom = 96.0
+theme = ExtResource( 1 )
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 4 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+margin_right = 232.0
+margin_bottom = 96.0
+border_color = Color( 1, 1, 1, 1 )
+border_width = 2.0
+editor_only = false
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 40, 48 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+hframes = 8
+vframes = 8
+
+[node name="Text" parent="." instance=ExtResource( 3 )]
+margin_left = 80.0
+margin_top = 16.0
+margin_right = -8.0
+margin_bottom = -8.0
+bbcode_text = "Overdrive [color=#FFFF00]1/5[/color]
+
+>>> The game is on[color=#FFFF00] 1.25x[/color] speed"
+text = "Overdrive 1/5
+
+>>> The game is on 1.25x speed"

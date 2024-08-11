@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/Display/Particles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Display/Ingame/Particles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Visual/FadingParticleGradient.tres" type="Gradient" id=2]
 
 [node name="ExplosiveParticles" instance=ExtResource( 1 )]

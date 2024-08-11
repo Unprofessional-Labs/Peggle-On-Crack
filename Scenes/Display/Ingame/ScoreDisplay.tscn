@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Display/Text.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Display/ScoreDisplay.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Display/Ingame/ScoreDisplay.gd" type="Script" id=2]
 
 [node name="ScoreDisplay" type="Node2D"]
 scale = Vector2( 2, 2 )

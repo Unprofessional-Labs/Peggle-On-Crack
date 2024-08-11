@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Display/Text.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/UI/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Display/Menu/ModifierOptionPanel.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Art/modifiers.png" type="Texture" id=4]
+
+[node name="ModifierOptionPanel" type="Panel"]
+script = ExtResource( 3 )
+
+[node name="Button" parent="." instance=ExtResource( 2 )]
+margin_right = 40.0
+margin_bottom = 40.0
+hint_tooltip = "skdksks"
+text = ""
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 20, 20 )
+texture = ExtResource( 4 )
+hframes = 8
+vframes = 8
+
+[node name="Text" parent="." instance=ExtResource( 1 )]
+margin_left = 4.0
+margin_top = 40.0
+margin_right = 36.0
+margin_bottom = 56.0
+bbcode_text = "[center]0"
+text = "0"
+
+[connection signal="mouse_entered" from="." to="." method="_on_ModifierOptionPanel_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_ModifierOptionPanel_mouse_exited"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

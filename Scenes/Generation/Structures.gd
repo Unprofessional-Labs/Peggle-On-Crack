@@ -116,7 +116,6 @@ func update_checkpoint() -> bool:
 	return false
 
 func update_barrier() -> void:
-	Global.get_world_node("UnloadedStructureBarrierStart").global_position = Vector2(0, get_first_child().get_global_y_top())
 	Global.get_world_node("UnloadedStructureBarrierEnd").global_position = Vector2(0, get_last_child().get_global_y_bottom())
 
 func renew_structures():

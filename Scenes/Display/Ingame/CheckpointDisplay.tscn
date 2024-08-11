@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Art/checkpoints.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Display/Text.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Display/CheckpointDisplay.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Display/Ingame/CheckpointDisplay.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Handlers/CheckpointDependentModulateHandler.tscn" type="PackedScene" id=4]
 
 [node name="CheckpointDisplay" type="Node2D"]
