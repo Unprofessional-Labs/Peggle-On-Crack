@@ -9,4 +9,3 @@ func addlabel() -> void:
 func endtrigger(body) -> void:
 	var final = extraTime * Global.time_peg_effectiveness_multiplier
 	Global.GAME_VAR.timer += final
-	Global.STATS["total_time"] += final
