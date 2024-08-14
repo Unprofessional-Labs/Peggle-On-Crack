@@ -111,7 +111,7 @@ func get_multiplier():
 	
 	return multiplier
 
-var starting_time = 7
+var starting_time = 90
 func initialize() -> void:
 	is_personal_best = false
 	GAME_VAR = {

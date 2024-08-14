@@ -62,7 +62,7 @@ content_margin_left = 10.0
 content_margin_right = 0.0
 content_margin_top = 0.0
 content_margin_bottom = 0.0
-bg_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+bg_color = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
 
 [resource]
 default_font = SubResource( 1 )
