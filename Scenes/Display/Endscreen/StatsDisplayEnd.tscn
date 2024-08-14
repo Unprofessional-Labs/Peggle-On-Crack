@@ -9,8 +9,8 @@ script = ExtResource( 1 )
 [node name="Text" parent="." instance=ExtResource( 2 )]
 margin_left = -448.0
 margin_top = 0.0
-margin_right = -256.0
-margin_bottom = 168.0
+margin_right = -272.0
+margin_bottom = 144.0
 rect_scale = Vector2( 2, 2 )
 bbcode_text = "GAME STATISTICS:
 
@@ -30,18 +30,18 @@ Peak multiplier: x5
 Peak combo: 67 combo
 Peak ball count: 4 balls
 Peak destruction density: 12 pegs per second"
+scroll_active = true
 
 [node name="Text2" parent="." instance=ExtResource( 2 )]
-margin_left = 64.0
+margin_left = -64.0
 margin_top = 0.0
-margin_right = 256.0
-margin_bottom = 168.0
+margin_right = 192.0
+margin_bottom = 144.0
 rect_scale = Vector2( 2, 2 )
 bbcode_text = "MODIFIER DETAILS:
 
-Multiplier: 1.0x
 [No modifiers enabled]"
 text = "MODIFIER DETAILS:
 
-Multiplier: 1.0x
 [No modifiers enabled]"
+scroll_active = true

@@ -1,5 +1,20 @@
 extends Node
 
+# array of triplets
+var modifier_details = [
+	["Overdrive", "The game is ??? faster", "x"],
+	["Acceleration", "The starting timer is ??? as long", "x"],
+	["Scarcity", "Time pegs give ??? as much", "x"],
+	["Absorbency", "The ball is ??? as bouncy", "x"],
+	["Rush", "Dash adjustment duration is ??? as long", "x"],
+	["Damping", "Motion damping is now ???", ""],
+	["Ineffectiveness", "Powerup duration is ??? as long", "x"],
+	["Uncontrollability", "Dash cooldown is ??? as long", "x"],
+	["Bleeding", "Deduces ??? every second", " points"],
+	["Streak", "Points are only rewarded at ??? and above", " combo"],
+	["Obscurity", "The game is only visible every ???", " seconds"],
+]
+
 func _ready() -> void:
 	Global.connect("start_game", self, "update_modifier_effects")
 
