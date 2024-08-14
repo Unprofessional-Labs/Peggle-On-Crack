@@ -280,7 +280,7 @@ func _process(delta: float) -> void:
 
 func process_ingame(delta: float) -> void:
 	STATS["peak_multiplier"] = max(STATS["peak_multiplier"], get_multiplier())
-	STATS["distance"] = max(STATS["distance"], first_node_in_group("player").global_position.y/10)
+	STATS["distance"] = max(STATS["distance"], first_node_in_group("player").global_position.y/100)
 	
 	# MULTIPLIER EXECUTE
 	var i = 0
@@ -331,6 +331,9 @@ func _on_ComboTimer_timeout() -> void:
 
 func first_node_in_group(groupname):
 	return get_tree().get_nodes_in_group(groupname)[0]
+	
+func bb_wrap_color(string:String, color:String) -> String:
+	return "[color=#" + color + "]" + string + "[/color]"
 
 # modifier global functions
 var bleeding_score_amount = 0
