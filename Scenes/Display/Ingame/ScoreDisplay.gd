@@ -1,5 +1,6 @@
 extends Node2D
 
+export var centerScore = false
 
 # Declare member variables here. Examples:
 # var a: int = 2
@@ -13,7 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$Text.bbcode_text = " " + str(Global.GAME_VAR.score)
+	$Text.bbcode_text = ("[center]" if centerScore else " ") + str(Global.GAME_VAR.score)
 	
 	if Global.multipliers.size() > 0:
 		var sorted = Global.multipliers

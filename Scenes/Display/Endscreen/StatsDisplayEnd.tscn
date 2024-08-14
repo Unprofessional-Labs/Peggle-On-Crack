@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Display/Endscreen/StatsDisplayEnd.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Display/Text.tscn" type="PackedScene" id=2]
+
+[node name="StatsDisplayEnd" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Text" parent="." instance=ExtResource( 2 )]
+margin_left = -448.0
+margin_top = 0.0
+margin_right = -256.0
+margin_bottom = 168.0
+rect_scale = Vector2( 2, 2 )
+bbcode_text = "GAME STATISTICS:
+
+Total time: [color=#FFFF00]102s[/color]
+Distance: [color=#FFFF00]500[/color]
+Pegs destroyed: [color=#FFFF00]154 pegs[/color]
+Peak multiplier: [color=#FFFF00]x5[/color]
+Peak combo: [color=#FFFF00]67 combo[/color]
+Peak ball count: [color=#FFFF00]4 balls[/color]
+Peak destruction density: [color=#FFFF00]12 pegs per second[/color]"
+text = "GAME STATISTICS:
+
+Total time: 102s
+Distance: 500
+Pegs destroyed: 154 pegs
+Peak multiplier: x5
+Peak combo: 67 combo
+Peak ball count: 4 balls
+Peak destruction density: 12 pegs per second"
+
+[node name="Text2" parent="." instance=ExtResource( 2 )]
+margin_left = 64.0
+margin_top = 0.0
+margin_right = 256.0
+margin_bottom = 168.0
+rect_scale = Vector2( 2, 2 )
+bbcode_text = "MODIFIER DETAILS:
+
+Multiplier: 1.0x
+[No modifiers enabled]"
+text = "MODIFIER DETAILS:
+
+Multiplier: 1.0x
+[No modifiers enabled]"

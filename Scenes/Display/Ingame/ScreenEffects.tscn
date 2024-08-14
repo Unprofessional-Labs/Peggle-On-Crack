@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Display/Ingame/ScreenEffects.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Display/Camera.tscn" type="PackedScene" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Scenes/Display/Ingame/DashDisplay.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Display/Ingame/PowerupDisplay.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Display/Ingame/CheckpointDisplay.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI/Button.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Display/Endscreen/PersonalBestDisplay.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Display/Endscreen/StatsDisplayEnd.tscn" type="PackedScene" id=10]
 
 [node name="ScreenEffects" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -17,15 +20,67 @@ script = ExtResource( 1 )
 current = true
 target = NodePath("../../PlayerBall")
 
-[node name="ScoreDisplay" parent="." instance=ExtResource( 3 )]
+[node name="Ingame" type="Control" parent="."]
+
+[node name="ScoreDisplay" parent="Ingame" instance=ExtResource( 3 )]
 position = Vector2( 0, 512 )
 
-[node name="TimerDisplay" parent="." instance=ExtResource( 4 )]
+[node name="TimerDisplay" parent="Ingame" instance=ExtResource( 4 )]
 
-[node name="DashDisplay" parent="." instance=ExtResource( 5 )]
+[node name="DashDisplay" parent="Ingame" instance=ExtResource( 5 )]
 
-[node name="PowerupDisplay" parent="." instance=ExtResource( 6 )]
+[node name="PowerupDisplay" parent="Ingame" instance=ExtResource( 6 )]
 position = Vector2( 1000, 488 )
 
-[node name="CheckpointDisplay" parent="." instance=ExtResource( 7 )]
+[node name="CheckpointDisplay" parent="Ingame" instance=ExtResource( 7 )]
 position = Vector2( 0, 240 )
+
+[node name="EndscreenCover" type="Control" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="EndscreenCover"]
+margin_left = -40.0
+margin_top = -24.0
+margin_right = 1056.0
+margin_bottom = 632.0
+color = Color( 0, 0, 0, 0.631373 )
+
+[node name="EndscreenContents" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ScoreDisplay" parent="EndscreenContents" instance=ExtResource( 3 )]
+position = Vector2( 0, 456 )
+centerScore = true
+
+[node name="Text" parent="EndscreenContents/ScoreDisplay" index="0"]
+margin_left = -96.0
+margin_top = -212.0
+margin_right = 80.0
+margin_bottom = -196.0
+rect_scale = Vector2( 4, 4 )
+bbcode_text = "[center]100"
+text = "100"
+
+[node name="Text2" parent="EndscreenContents/ScoreDisplay" index="1"]
+visible = false
+
+[node name="Text3" parent="EndscreenContents/ScoreDisplay" index="2"]
+visible = false
+
+[node name="PersonalBestDisplay" parent="EndscreenContents" instance=ExtResource( 9 )]
+position = Vector2( 512, 144 )
+
+[node name="StatsDisplayEnd" parent="EndscreenContents" instance=ExtResource( 10 )]
+position = Vector2( 512, 184 )
+
+[node name="Button" parent="EndscreenContents" instance=ExtResource( 8 )]
+margin_left = 416.0
+margin_top = 504.0
+margin_right = 512.0
+margin_bottom = 532.0
+rect_scale = Vector2( 2, 2 )
+text = "Back"
+
+[connection signal="pressed" from="EndscreenContents/Button" to="." method="_on_Button_pressed"]
+
+[editable path="EndscreenContents/ScoreDisplay"]

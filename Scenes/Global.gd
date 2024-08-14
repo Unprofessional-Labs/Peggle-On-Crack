@@ -14,6 +14,7 @@ var PRELOADS = {
 }
 
 var GAME_VAR
+var STATS
 
 var SAVED_DATA = {
 	"best_score": 0
@@ -110,8 +111,9 @@ func get_multiplier():
 	
 	return multiplier
 
-var starting_time = 90
+var starting_time = 7
 func initialize() -> void:
+	is_personal_best = false
 	GAME_VAR = {
 		"score": 0,
 		"timer": starting_time,
@@ -119,7 +121,18 @@ func initialize() -> void:
 		"can_dash": true,
 		"dash_cooldown_remaining_decimal": 0,
 		"time_is_up": false,
-		"game_over": false
+		"game_over": false,
+		"destruction_density_per_second": 0
+	}
+	
+	STATS = {
+		"total_time": starting_time,
+		"distance": 0,
+		"pegs_destroyed": 0,
+		"peak_multiplier": 1,
+		"peak_combo": 0,
+		"peak_ball_count": 1,
+		"peak_destruction_density_per_second": 0
 	}
 
 	multipliers = []
@@ -166,14 +179,18 @@ func start_game():
 		$StructuresInvisibleTimer.wait_time = structure_invisible_interval
 	else:
 		structures.modulate.a = 1
-	
+
+var is_personal_best = false
 func end_game_func():
+	print(Global.STATS)
 	GAME_VAR.game_over = true
 	INGAME = false
 	$BleedingTimer.stop()
 	$StructuresInvisibleTimer.stop()
 	GAME_VAR.score *= get_modifier_multiplier()
 	GAME_VAR.score = round(GAME_VAR.score)
+	
+	is_personal_best = GAME_VAR.score >= SAVED_DATA.best_score
 	
 	if structure_invisible_interval > 0:
 		$Tween.interpolate_property(structures, "modulate:a", 0, 1, 3, Tween.TRANS_LINEAR)
@@ -262,6 +279,9 @@ func _process(delta: float) -> void:
 		Engine.time_scale = 1
 
 func process_ingame(delta: float) -> void:
+	STATS["peak_multiplier"] = max(STATS["peak_multiplier"], get_multiplier())
+	STATS["distance"] = max(STATS["distance"], first_node_in_group("player").global_position.y/10)
+	
 	# MULTIPLIER EXECUTE
 	var i = 0
 	while i < multipliers.size():
@@ -290,6 +310,7 @@ func process_ingame(delta: float) -> void:
 		productTimeTickingScale *= time_ticking_scales[j]
 	
 	if time_ticking_enabled:
+		STATS["total_time"] += delta
 		if GAME_VAR.timer > 0:
 			GAME_VAR.timer -= delta * productTimeTickingScale
 			GAME_VAR.timer = max(0, GAME_VAR.timer)
@@ -302,6 +323,8 @@ func add_combo():
 	GAME_VAR.combo += 1
 	$ComboTimer.start()
 	$DeadPointsTimer.start()
+	
+	STATS["peak_combo"] = max(STATS["peak_combo"], GAME_VAR.combo)
 
 func _on_ComboTimer_timeout() -> void:
 	GAME_VAR.combo = 0

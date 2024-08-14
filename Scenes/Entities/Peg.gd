@@ -33,11 +33,20 @@ func dmg(body) -> void:
 	if HP <= 0:
 		Global.GAME_VAR.score += FINAL_POINTS
 		addlabel()
+		add_stats()
 		
 		Global.add_combo()
 		endtrigger(body)
 		remove()
-		
+
+func add_stats() -> void:
+	Global.STATS["pegs_destroyed"] += 1
+	
+	Global.GAME_VAR["destruction_density_per_second"] += 1
+	Global.STATS["peak_destruction_density_per_second"] = max(Global.STATS["peak_destruction_density_per_second"], Global.GAME_VAR["destruction_density_per_second"])
+	yield(get_tree().create_timer(1), "timeout")
+	Global.GAME_VAR["destruction_density_per_second"] -= 1
+
 func remove() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Hitbox/CollisionShape2D.set_deferred("disabled", true)

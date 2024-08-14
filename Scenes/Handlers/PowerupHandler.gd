@@ -4,6 +4,7 @@ onready var ball:PlayerBall = get_parent()
 
 var is_piercing_powerup = false
 var multiballLists = [] # 2d array of balls
+var ball_count = 1
 var ghost_positions = []
 
 var UNSTACKABLE_POWERUPS = [Global.POWERUP.super_bounce, Global.POWERUP.bamboozle, Global.POWERUP.pierce, Global.POWERUP.enlarge]
@@ -45,6 +46,8 @@ func toggle_powerup(powerup: int, enable: bool) -> void:
 			if !ball.is_instance:
 				if enable:
 					var number_of_extra_balls = 2
+					ball_count += number_of_extra_balls
+					Global.STATS["peak_ball_count"] = max(Global.STATS["peak_ball_count"], ball_count)
 					multiballLists.append([])
 					
 					for i in range(number_of_extra_balls):

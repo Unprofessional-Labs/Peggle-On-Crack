@@ -7,6 +7,10 @@ signal modifier_mouse_exit()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.connect("end_game", self, "reload")
+	reload()
+
+func reload() -> void:
 	for i in Global.MODIFIER:
 		var index = Global.MODIFIER[i]
 		if Global.modifier_max_level[index] > 0:
