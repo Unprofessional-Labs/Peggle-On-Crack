@@ -4,6 +4,7 @@ signal reset()
 signal start_game()
 signal end_game()
 signal announce_checkpoint()
+signal switch_to_menu()
 
 var INGAME = false
 
@@ -280,7 +281,7 @@ func _process(delta: float) -> void:
 
 func process_ingame(delta: float) -> void:
 	STATS["peak_multiplier"] = max(STATS["peak_multiplier"], get_multiplier())
-	STATS["distance"] = max(STATS["distance"], first_node_in_group("player").global_position.y/100)
+	STATS["distance"] = max(STATS["distance"], first_node_in_group("player").global_position.y/10)
 	
 	# MULTIPLIER EXECUTE
 	var i = 0

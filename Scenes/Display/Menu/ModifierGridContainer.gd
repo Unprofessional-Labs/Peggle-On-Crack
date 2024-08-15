@@ -7,7 +7,7 @@ signal modifier_mouse_exit()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.connect("end_game", self, "reload")
+	Global.connect("switch_to_menu", self, "reload")
 	reload()
 
 func reload() -> void:

@@ -24,7 +24,7 @@ func end():
 		
 		for index in range(Global.MODIFIER.size()):
 			if Global.modifier_levels[index] == 0:
-				break
+				continue
 			
 			var details = Global.get_node("ModifierHandler").modifier_details[index]
 			var rawlevel = Global.modifier_levels[index]

@@ -18,6 +18,7 @@ func end_game() -> void:
 	
 	yield(get_tree().create_timer(0.5), "timeout")
 	
+	
 	$Tween.interpolate_property($EndscreenContents, "modulate:a", 0, 1, 0.5, Tween.TRANS_LINEAR)
 	yield(get_tree(), "idle_frame")
 	$EndscreenContents.visible = true
@@ -26,4 +27,5 @@ func end_game() -> void:
 #	pass
 
 func _on_Button_pressed() -> void:
+	Global.emit_signal("switch_to_menu")
 	get_tree().change_scene("res://MainTitle.tscn")
