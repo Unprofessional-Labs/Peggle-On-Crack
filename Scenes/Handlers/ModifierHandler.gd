@@ -29,6 +29,7 @@ func update_modifier_effects():
 				
 			Global.MODIFIER.acceleration:
 				Global.GAME_VAR["timer"] = Global.starting_time * value
+				Global.STATS["total_time"] = Global.starting_time * value
 			
 			Global.MODIFIER.scarcity:
 				Global.time_peg_effectiveness_multiplier = value

@@ -16,6 +16,7 @@ func end():
 
 	# Modifiers
 	var multiplier = Global.get_modifier_multiplier()
+	print(multiplier)
 	$Text2.bbcode_text = "MODIFIER DETAILS: \n\n"
 	if multiplier == 1:
 		$Text2.bbcode_text += "[No modifiers enabled]"

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Handlers/PauseHandler.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Display/Text.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI/Button.tscn" type="PackedScene" id=3]
 
 [node name="PauseDisplay" type="Control"]
 margin_right = 40.0
@@ -33,3 +34,13 @@ margin_bottom = 304.0
 rect_scale = Vector2( 2, 2 )
 bbcode_text = "[center][ESC] to resume"
 text = "[ESC] to resume"
+
+[node name="Button" parent="." instance=ExtResource( 3 )]
+margin_left = 368.0
+margin_top = 504.0
+margin_right = 512.0
+margin_bottom = 532.0
+rect_scale = Vector2( 2, 2 )
+text = "Permanently halt run"
+
+[connection signal="pressed" from="Button" to="PauseHandler" method="_on_Button_pressed"]

@@ -116,8 +116,8 @@ func end(enable:bool) -> void:
 		if abs(linear_velocity.x) < 5 && abs(linear_velocity.y) < 5:
 			linear_velocity = Vector2.ZERO
 			
-			if !is_instance:
-				if !ended && Global.get_node("DeadPointsTimer").is_stopped():
+			if !is_instance && Global.get_node("DeadPointsTimer").is_stopped():
+				if !ended:
 					Global.emit_signal("end_game")
 					ended = true
 			

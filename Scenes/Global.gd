@@ -4,7 +4,6 @@ signal reset()
 signal start_game()
 signal end_game()
 signal announce_checkpoint()
-signal switch_to_menu()
 
 var INGAME = false
 
@@ -148,6 +147,11 @@ var random = RandomNumberGenerator.new()
 var score_per_modifier = 500
 func initialize_variables():
 	var number_of_modifiers = MODIFIER.size()
+	
+	modifier_levels = []
+	modifier_values = []
+	modifier_max_level = []
+	
 	modifier_levels.resize(number_of_modifiers)
 	modifier_levels.fill(0)
 	modifier_values.resize(number_of_modifiers)
@@ -198,6 +202,9 @@ func end_game_func():
 		$Tween.start()
 	
 	save_data()
+	
+	yield(get_tree(), "idle_frame")
+	initialize_variables()
 
 func save_data():
 	var save_resource = GameSaveResource.new()
